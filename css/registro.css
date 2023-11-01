@@ -1,0 +1,27 @@
+@import url(login.css);
+    /*
+       ^^Contiene:
+            Banderas
+            Error
+            Vinculos
+            Botones 
+            Fondo
+    */
+
+/*MARCO CENTRAL*/
+.marcoCentral {
+    height: 390px;
+}
+.formularioEntrada {
+    background-color: transparent;
+    border-top-color: transparent;
+    border-left-color:transparent;
+    border-right-color: transparent;
+    border-bottom-color:rgb(165, 159, 159);
+    position: relative;
+    margin-top:17px;
+}
+.columnasDobles {
+    /*background-color: rgb(148, 112, 112);*/
+    width: 200px;
+}

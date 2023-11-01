@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <link rel="shortcut icon" href="recursos/iconos/Icono.png">
+    <title>Inicio de sesión</title>
+</head>
+<body>
+    <div class="fondo">
+    <button class="botones"><a href="#es" data-reload class="vinculos" id="bEspañol"><img src="recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a></button>
+    <button class="botones"><a href="#eng" data-reload class="vinculos" id="bIngles"><img src="recursos/iconos/banderaUK.png"  class="banderas"> English</a></button>
+    <button class="botones"><a href="#pl" data-reload class="vinculos" id="bPolaco"><img src="recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a></button>
+    <!--
+    <a href="#es" data-reload class="vinculos" id="Español"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a>
+    <a href="#eng" data-reload class="vinculos" id="Ingles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a>
+    <a href="#pl" data-reload class="vinculos" id="Polaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a>
+    -->
+    <h4 class="error"></h4>
+    <div class="marcoCentral" style="font-size: 18px;" id="login">
+        <form>
+            <h3 class="titulos" id="titulo">Inicio de sesión </h3>
+            <input class="formularioEntrada" placeholder="Nombre de usuario" type="text" id="nombre">
+            <br><br>
+            <input  class="formularioEntrada" placeholder="Contraseña" type="password" id="password">
+            <br><br><br>
+            <input type="submit" name="Enviar" value="Entrar" class="botones" id="boton">
+        </form>
+        <a href="html/registro.html" class="vinculos" target="_self"><h4 id="crearCuenta" class="textoLink">¿No dispone de una cuenta? Creela en este momento >></h4></a>
+    </div>
+</div>
+    <script src="js/login.js"></script>
+</body>
+</html>
