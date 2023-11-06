@@ -1,4 +1,4 @@
-@import url(login.css);
+@import url(hojaCentral.css);
     /*
        ^^Contiene:
             Banderas
@@ -7,10 +7,13 @@
             Botones 
             Fondo
     */
-
+/*ARREGLOS*/
+.botones{
+    margin-top: 20px;
+}
 /*MARCO CENTRAL*/
 .marcoCentral {
-    height: 390px;
+    height: 410px;
 }
 .formularioEntrada {
     background-color: transparent;
@@ -19,9 +22,15 @@
     border-right-color: transparent;
     border-bottom-color:rgb(165, 159, 159);
     position: relative;
-    margin-top:17px;
+    margin-top:15px;
 }
 .columnasDobles {
     /*background-color: rgb(148, 112, 112);*/
     width: 200px;
+}
+.titulos {
+    font-family:Helvetica;
+    color:rgb(114, 102, 102);
+    text-align: center;
+    font-size: 27px;
 }
