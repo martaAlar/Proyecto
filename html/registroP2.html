@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/registroP2.css"/>
+    <link rel="shortcut icon" href="../recursos/iconos/Icono.png">
+    <title>Registro</title>
+</head>
+<body>
+    <div class="fondo">
+    <button class="botonesIdioma"><a href="#es" data-reload class="vinculos" id="bEspañol"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a></button>
+    <button class="botonesIdioma"><a href="#eng" data-reload class="vinculos" id="bIngles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a></button>
+    <button class="botonesIdioma"><a href="#pl" data-reload class="vinculos" id="bPolaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a></button>
+    <!--
+    <a href="#es" data-reload class="vinculos" id="Español"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a>
+    <a href="#eng" data-reload class="vinculos" id="Ingles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a>
+    <a href="#pl" data-reload class="vinculos" id="Polaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a>
+    -->
+    <h4 class="error"></h4>
+    <div class="marcoCentral" id="reg">
+        <form>
+            <h3 class="titulos" id="titulo">Descipción</h3>
+            <div>
+
+                <div contenteditable="true" id="editableDiv">Inserte el texto aquí...</div>
+                    
+                    <button onclick="negrita()" style="font-weight:bold;" class="botones">N</button>
+                    <button onclick="copiar()" style="font-weight:bold;" class="botones">copiar</button>
+                    <button onclick="cursiva()" style="font-weight:bold;" class="botones"><i>K</i></button>
+
+            <script>
+                function negrita() {
+                    var selectedText = window.getSelection().toString();
+                    if (selectedText.length > 0) {
+                        document.execCommand('bold', false, null);
+                    }
+                }
+
+                function copiar() {
+                    var selectedText = window.getSelection().toString();
+                    if (selectedText.length > 0) {
+                        document.execCommand('copy', false, null);
+                    }
+                }
+
+                function cursiva() {
+                    var selectedText = window.getSelection().toString();
+                    if (selectedText.length > 0) {
+                        document.execCommand('italic', false, null);
+                    }
+                }
+                
+                //const editableDiv = document.getElementById("editableDiv");
+
+                /*editableDiv.addEventListener("input", function () {
+                if (editableDiv.textContent === "" && !Focus) {
+                    editableDiv.textContent = "Enter your text here...";
+                } else {
+                    editableDiv.textContent("");
+                }
+                });
+                editableDiv.addEventListener("focus", function () {
+                    if (editableDiv.textContent.trim() === "Enter your text here...") {
+                        editableDiv.textContent = "hola";
+                    }
+                });*/
+            </script>    
+
+            </div>
+            <div style="clear: both; text-align: center;">
+                <input type="submit" name="Enviar" value="Siguiente" class="botones">
+            </div>
+        </form>
+    </div>
+</div>
+    <script src="../js/registro.js"></script>
+</body>
+</html>

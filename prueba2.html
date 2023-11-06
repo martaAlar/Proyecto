@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--<textarea id="inputText"></textarea>
+    <button onclick="makeTextBold()">Make Bold</button>
+    <div id="outputText"></div>
+    
+    <script>
+        function makeTextBold() {
+        var textArea = document.getElementById("textArea");
+        var selectedText = textArea.value.substring(textArea.selectionStart, textArea.selectionEnd);
+        
+        if (selectedText.length > 0) {
+            var newText = textArea.value.substring(0, textArea.selectionStart) +
+                          "<b>" + selectedText + "</b>" +
+                          textArea.value.substring(textArea.selectionEnd);
+
+            textArea.value = newText;
+        }
+        }
+    </script>
+-->
+    <div contenteditable="true" id="editableDiv" style="border: 1px solid #ccc; min-height: 100px;"></div>
+    <br>
+    <button onclick="negrita()" style="font-weight:bold;">N</button>
+    <button onclick="copiar()" style="font-weight:bold;">copiar</button>
+    <button onclick="cursiva()" style="font-weight:bold;"><i>K</i></button>
+
+    <script>
+        function negrita() {
+            var selectedText = window.getSelection().toString();
+            if (selectedText.length > 0) {
+                document.execCommand('bold', false, null);
+            }
+        }
+
+        function copiar() {
+            var selectedText = window.getSelection().toString();
+            if (selectedText.length > 0) {
+                document.execCommand('copy', false, null);
+            }
+        }
+
+        function cursiva() {
+            var selectedText = window.getSelection().toString();
+            if (selectedText.length > 0) {
+                document.execCommand('italic', false, null);
+            }
+        }
+        
+    </script>
+
+
+</body>
+</html>
