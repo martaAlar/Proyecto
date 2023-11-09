@@ -82,7 +82,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     var password = document.getElementById('password').value;
     // Comprobación de prueba
     if (name === 'Marta' && password === '1234') {
-        window.location.href = "../html/perfil.html";
+        window.location.href = "html/perfil.html";
     } else {
         // Mensaje de error          *cambiar por idiomas
         alert(errorLogin.textContent);
