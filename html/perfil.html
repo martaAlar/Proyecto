@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/perfil.css"/>
     <link rel="shortcut icon" href="Icono.png">
+    <script src="../js/perfil.js"></script>
     <title>Inicio</title>
 </head>
 <body>
     <nav class="barraNavegacion">
         <form>
-            <input type="search" placeholder="Buscar "><input type="submit" value="" style="background-image: url();"> <!--añadir imagen de lupa al botón-->
+            <input type="search" placeholder="Buscar "><input type="submit" value="Lupa" style="background-image: url();"> <!--añadir imagen de lupa al botón-->
         </form>
-        <h1 style="margin-bottom: 0px;">Interacción</h1>
+        <div id="contenedorIframe"></div>
+        <h1 class="tituloNavegación"  style="margin-bottom: 0px;" >Interacción</h1>
         <button class="botonNavPerfil"><img>Me gusta</button>
         <br>
         <button class="botonNavPerfil"><img>Seguir</button>
@@ -21,10 +23,12 @@
         <br>
         <button class="botonNavPerfil"><img>Bloquear</button>
         <br>
-        <h1 style="margin-bottom: 0px;">Información</h1>
+        <h1 class="tituloNavegación" style="margin-bottom: 0px;">Información</h1>
         <button class="botonNavPerfil"><img>Seguidores</button>
         <br>
         <button class="botonNavPerfil"><img>Seguidos</button>
+        <button class="botonNavPerfil" onclick="cargarContenido()" style="bottom: 0px;">Configuración</button>
+        
     </nav>
         <section>
         <header>

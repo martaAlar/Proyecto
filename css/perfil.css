@@ -1,14 +1,26 @@
 @import url(hojaCentral.css);
 
+#contenedorIframe{
+    position: absolute;
+    z-index: 200;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.tituloNavegación{
+    font-size: 20px;
+}
+
 .barraNavegacion {
     /*background-color: rgb(255, 7, 7);*/
     width: 250px;
     height: 100%;
+    z-index: 1;
 }
 
 .botonNavPerfil {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     color: brown;
 
     margin-top: 3px;
