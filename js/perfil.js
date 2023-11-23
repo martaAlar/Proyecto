@@ -21,7 +21,7 @@ function cargarContenido() {
 
     // Crea un elemento iframe
     var iframe = document.createElement('iframe');
-    iframe.src = 'otroDocumento.html'; // Especifica la ruta del documento HTML que quieres cargar
+    iframe.src = 'registroP1.html'; // Especifica la ruta del documento HTML que quieres cargar
 
     // Establece las dimensiones del iframe (ajusta según sea necesario)
     iframe.width = '1000';

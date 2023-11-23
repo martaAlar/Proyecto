@@ -20,6 +20,9 @@
     width: 220px;
     height: 100%;
     z-index: 1;
+    position: relative;
+    display: inline;
+    clear: both;
 }
 
 .botonNavPerfil {
