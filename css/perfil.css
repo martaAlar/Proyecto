@@ -1,34 +1,78 @@
 @import url(hojaCentral.css);
-
+body {
+    width: 98%;
+    height: 100%;
+}
+#contenidoPrincipal{
+    position: absolute;
+    top: 10px;
+}
 #contenedorIframe{
     position: absolute;
     z-index: 200;
     margin-left: 10%;
     margin-right: 10%;
+    width: 80%;
 }
-
+@media (min-width: 1100px) {
+    .barraNavegacion{
+        width: 240px !important;
+        padding-right: 1%;
+        height: 98%;
+    }
+    #contenidoPrincipal{
+        margin-top: 0px;
+        margin-left: 290px;
+        height: 97%;
+        margin-right: 1% !important;
+        
+    }
+}
+@media (max-width: 1100px) {
+    .barraNavegacion{
+        display: none;
+    }
+    #contenidoPrincipal{
+        height: 97%;
+        margin-left: 0.7%;
+        margin-right: 0.7%;
+    }
+}
 .tituloNavegación{
     font-size: 20px;
 }
 
 .barraNavegacion {
+    position: absolute;
+    height: 97%;
     border-left: 2px solid transparent; 
       border-right: 2px solid #9e8d8581; 
       border-top: 2px solid transparent; 
       border-bottom: 2px solid transparent;
-
-    width: 220px;
-    height: 100%;
+    width: 22%;
     z-index: 1;
+    padding-left: 5px;
 }
 
 .botonNavPerfil {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    color: brown;
-
-    margin-top: 3px;
+    font-size: 17px;
+    color: rgb(155, 119, 119);
+    border-radius: 10px;
+    margin-top: 2px;
+    width: 240px; 
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    text-align: left;
     background-color: transparent;
     border-color: transparent;
+}
+.botonNavPerfil:hover{
+    background-color: rgba(227, 227, 227, 0.454);
+}
 
+#banner{
+    width: 98%;
 }
