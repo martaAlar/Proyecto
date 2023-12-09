@@ -7,6 +7,7 @@
             Botones 
             Fondo
     */
+
 /*TEXTO*/
 .textoLink {
     font-family:Helvetica;
@@ -28,3 +29,47 @@
     position: relative;
     margin-top:20px;
 }
+.animacionIcono {
+    margin-top: -150px;
+    margin-left: 45%;
+    width: 100px;
+}
+.animacionIcono {
+    animation: iconoBajando 5s linear forwards; 
+}
+
+@keyframes iconoBajando {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    10% {
+        transform: translateX(10vh) translateY(10vh);
+    }
+    20% {
+        transform: translateX(-10vh) translateY(20vh);
+    }
+    30% {
+        transform: translateX(10vh) translateY(35vh);
+    }
+    40% {
+        transform: translateX(-10vh) translateY(50vh);
+    }
+    50% {
+        transform: rotateY(180deg) translateX(10vh) translateY(50vh);
+    }
+    60% {
+        transform: translateX(10vh) translateY(50vh);
+    } 
+    70% {
+        transform: translateX(-10vh) translateY(50vh);
+    }
+    100% {
+        transform: scale(200);
+        opacity: 0;
+        display: none;
+    }
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
