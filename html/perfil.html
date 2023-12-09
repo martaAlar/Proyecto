@@ -10,9 +10,10 @@
 </head>
 <body>
     <nav class="barraNavegacion">
-        <img src="../recursos/iconos/suplemento de logo.png" style="width: 200px; margin-left: 15px;">
+        <img src="../recursos/iconos/Icono.png" class="iconoPequeño">
+        <img src="../recursos/iconos/suplemento de logo.png" class="iconoGrande" style="width: 200px; margin-left: 15px;">
         <form>
-            <input type="search" placeholder="Buscar "><input type="submit" value="Lupa" style="background-image: url();"> <!--añadir imagen de lupa al botón-->
+            <input type="search" placeholder="Buscar " class="barraBusqueda"><input class="lupa">
         </form>
         <div id="contenedorIframe"></div>
         <h1 class="tituloNavegación"  style="margin-bottom: 0px;" >Interacción</h1>
@@ -25,9 +26,9 @@
         <button class="botonNavPerfil"><img>Bloquear</button>
         <br>
         <h1 class="tituloNavegación" style="margin-bottom: 0px;">Información</h1>
-        <button class="botonNavPerfil"><img>Seguidores</button>
+        <button class="botonNavPerfil"><img>Seguidores</button><p id="informacion">400k</p>
         <br>
-        <button class="botonNavPerfil"><img>Seguidos</button>
+        <button class="botonNavPerfil"><img>Seguidos</button><p id="informacion">40</p>
         <br>
         <button class="botonNavPerfil" onclick="cargarContenido()" style="position: absolute; bottom: 0px;">Configuración</button>
         
@@ -35,7 +36,145 @@
         <section id="contenidoPrincipal">
         <header>
             <img src="../recursos/imagenesPrototipo/banner.jpg" id="banner">
+            <img src="../recursos/imagenesPrototipo/pfp.jpg" id="pfp">
+            <div id="descripcion">
+                Miau miau miau miau, miau miau miau, miau miau miau miau miau
+                miau. Miau miau miau miau miau miau, miau, miau miau miau miau miau.
+                Miau  miau miau miau miau miau miau miau miau miau, miau miau miau miau miau.
+            </div>
+            <div class="tagsDivPerfil">
+                <div class="tagsPerfil">Saltar</div>
+                <div class="tagsPerfil">Juguetes</div>
+                <div class="tagsPerfil">Pienso</div>
+                <div class="tagsPerfil">Rascadores</div>
+                <div class="tagsPerfil">Dormir</div>
+                <div class="tagsPerfil">Maullar</div>
+            </div>
         </header>
+
+        <aside class="matching">
+            
+            <h1 class="tituloNavegación">Matching</h1>
+            <button class="botonPerfilMatching">
+                <div class="perfilesMatching">
+
+                    <div class="fila1">
+                        <img src="../recursos/imagenesPrototipo/pfp2.jpg" class="pfpMatching">
+                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
+                    </div>    
+
+                    <div class="tagsDivMatching">
+                        <div class="tagsMatching">Saltar</div>
+                        <div class="tagsMatching">Pienso</div>
+                        <div class="tagsMatching">Rascadores</div>
+                        <div class="tagsMatching">...</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="botonPerfilMatching">
+                <div class="perfilesMatching">
+
+                    <div class="fila1">
+                        <img src="../recursos/imagenesPrototipo/pfp3.jpg" class="pfpMatching">
+                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
+                    </div>    
+
+                    <div class="tagsDivMatching">
+                        <div class="tagsMatching">Saltar</div>
+                        <div class="tagsMatching">Pienso</div>
+                        <div class="tagsMatching">Rascadores</div>
+                        <div class="tagsMatching">...</div>
+                    </div>
+                </div>
+            </button>
+
+            <button class="botonPerfilMatching">
+                <div class="perfilesMatching">
+
+                    <div class="fila1">
+                        <img src="../recursos/imagenesPrototipo/pfp4.jpg" class="pfpMatching">
+                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
+                    </div>    
+
+                    <div class="tagsDivMatching">
+                        <div class="tagsMatching">Saltar</div>
+                        <div class="tagsMatching">Pienso</div>
+                        <div class="tagsMatching">Rascadores</div>
+                        <div class="tagsMatching">...</div>
+                    </div>
+                </div>
+            </button>
+            
+            </div>
+        </aside>
+        <article class="publicaciones">
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><3</button>
+            </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion2.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><3</button>
+            </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion3.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><3</button>
+            </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion4.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><3</button>
+            </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><3</button>
+            </div>
+        </article>
     </section>
 </body>
 </html>

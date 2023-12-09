@@ -20,25 +20,43 @@ body {
         padding-right: 1%;
         height: 98%;
     }
+    .iconoPequeño {
+        display: none;
+    }
     #contenidoPrincipal{
         margin-top: 0px;
-        margin-left: 290px;
+        /*margin-left: 290px;*/
+        margin-left: 25%;
+        width: 72%;
         height: 97%;
-        margin-right: 1% !important;
+        margin-right: 3%;
         
     }
 }
 @media (max-width: 1100px) {
-    .barraNavegacion{
+    .barraNavegacion *{
         display: none;
     }
+    .iconoPequeño {
+        display: block;
+        position: absolute;
+        width: 90%;
+        margin-left: -4%;
+    }
+    .barraNavegacion{
+        width: 7% !important;
+
+}
     #contenidoPrincipal{
-        height: 97%;
-        margin-left: 0.7%;
+        height: 95%;
+        margin-left: 9%;
         margin-right: 0.7%;
+        width: 90%;
     }
 }
 .tituloNavegación{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3c3633de;
     font-size: 20px;
 }
 
@@ -69,10 +87,178 @@ body {
     background-color: transparent;
     border-color: transparent;
 }
+
 .botonNavPerfil:hover{
     background-color: rgba(227, 227, 227, 0.454);
 }
 
+.barraBusqueda {
+    border-radius: 20px;
+    padding: 6px;
+
+}
+
+.lupa {
+    background-image: url('/recursos/iconos/lupa.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: transparent;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+#informacion {
+    position: absolute;
+    margin-top: -33px;
+    margin-left: 170px;
+    font-size: 20px;
+    color: rgb(84, 67, 67);
+}
+
 #banner{
     width: 98%;
+    margin: 0 auto;
+    height: 280px;
 }
+
+#pfp {
+    position: relative;
+    z-index: 200;
+    margin-top: -90px;
+    margin-left: 5%;
+    width: 130px;
+    border-radius: 90px;
+    border: 7px solid white
+
+}
+#descripcion {
+    position: absolute;
+    width: 47%;
+    margin-left: 23%;
+    margin-top: -4%;
+    font-size: 16px;
+}
+.tagsDivPerfil {
+    position: absolute;
+    width: 20%;
+    height: 24px;
+}
+
+.tagsPerfil {
+    font-size: 15px;
+    display: inline-block;
+    padding: 2px 5px 2px 5px;
+    border-radius: 9px;
+    margin: 1px;
+    background-color: rgba(255, 0, 0, 0.397);
+}
+/* MATCHING */
+.matching {
+    position: absolute;
+    right: 0;
+    margin-right: 2%;
+    margin-top: -6%;
+    width: 25%;
+
+    border-right: 2px solid transparent; 
+      border-left: 2px solid #9e8d8581; 
+      border-top: 2px solid transparent; 
+      border-bottom: 2px solid transparent;
+}
+
+.matching h1 {
+    margin-left: 20px;
+}
+.botonPerfilMatching {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.botonPerfilMatching:hover {
+    background-color: rgba(227, 227, 227, 0.454);
+}
+.perfilesMatching {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 8px;
+    padding-bottom: 5px;
+    margin: -1px -6px;
+}
+
+.fila1 {
+    display: flex; 
+    margin-bottom: -5px;
+}
+
+.pfpMatching {
+    width: 25%;
+    border-radius: 90px;
+    margin-right: 10px;
+    margin-bottom: 8px; 
+}
+
+.nombreMatching {
+    width: 65%;
+    word-wrap: break-word;
+}
+
+.tagsDivMatching {
+    width: 97%;
+}
+
+.tagsMatching {
+    display: inline-block;
+    padding: 2px 5px 2px 5px;
+    border-radius: 9px;
+    margin: 1px;
+    background-color: rgba(255, 0, 0, 0.397);
+}
+
+.publicaciones {
+    width: 72%;
+    height: 65%;
+    margin-top: 10%;
+    overflow:scroll;
+}
+
+.publicaciones::-webkit-scrollbar {
+    width: 10px;
+}
+
+.publicaciones::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.739);
+}
+
+/* PUBLICACIONES*/
+.publicacionPrueba {
+    flex-direction: column;
+    width: 98%;
+    margin-right: 1%;
+    margin-top: 2%;
+    display: flex;
+}
+.fotoPublicacion {
+    width: 35%;
+    margin-top: 15px;
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+
+.textoPublicacion {
+    width: 60%;
+    margin-left: 2%;
+}
+
+.meGustaBoton {
+    font-size: 20px;
+    width: 40px;
+    height: 20px;
+    padding-bottom: 20px;
+    margin: 5px;
+}
+
