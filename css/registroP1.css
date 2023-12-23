@@ -9,11 +9,11 @@
     */
 /*ARREGLOS*/
 .botones{
-    margin-top: 20px;
+    margin-top: 15px;
 }
 /*MARCO CENTRAL*/
 .marcoCentral {
-    height: 410px;
+    height: 430px;
 }
 .formularioEntrada {
     background-color: transparent;
@@ -32,4 +32,85 @@
     color:rgb(114, 102, 102);
     text-align: center;
     font-size: 27px;
+}
+
+.eleccionColores label:empty {
+    border: solid 1px rgba(0, 0, 0, 0.129);
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    display: inline-block;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.eleccionColores input[type="radio"]:checked + label{
+    box-shadow: 0 0 3px 3px #746e6e2d;
+}
+
+.eleccionColores input[type="radio"] {
+    display: none;
+}
+
+#color1 + label:empty {
+    background: linear-gradient(
+        50deg,
+        #f0ebeb,
+        #a38080
+        );
+}
+
+#color2 + label:empty {
+    background: linear-gradient(
+        50deg,
+        #f0ebeb,
+        #a39780
+        );
+}
+
+#color3 + label:empty {
+    background: linear-gradient(
+        50deg,
+        #f0ebeb,
+        #8f80a3
+        );
+}
+
+#color4 + label:empty {
+    background: linear-gradient(
+        50deg,
+        #f0ebeb,
+        #80a383
+        );
+}
+
+#color5 + label:empty {
+    background: linear-gradient(
+        50deg,
+        #f0ebeb,
+        #80a1a3
+        );
+}
+
+#color6 + label:empty {
+    background: linear-gradient(
+        50deg,
+        #f0ebeb,
+        #b191b8
+        );
+}
+
+#previsualizar {
+    border-radius: 10px;
+    border:0px;
+    margin-top: 0px;
+    background-color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family:'Helvetica';
 }

@@ -23,7 +23,7 @@
             <h3 class="titulos" id="titulo">Registro</h3>
             <div>
 
-                    <div class="columnasDobles" style="float: left;margin-left: 30px;">
+                <div class="columnasDobles" style="float: left;margin-left: 30px;">
                     <input class="formularioEntrada" placeholder="Nombre" type="text" id="nombre" style="margin-top: 0px;">
                     <br><br>
                     <input class="formularioEntrada" placeholder="Primer apellido" type="text" id="prApellido">
@@ -43,8 +43,31 @@
                     <input  class="formularioEntrada" placeholder="Contraseña" type="password" id="password">
                     <br><br>
                     <label style="font-family:Helvetica;color:rgb(114, 102, 102);"  id="colorPerfil">Color del perfil:</label>
-                    <input type="color">
-                    <br>
+                    <br><br>
+                    <div class="eleccionColores">
+                        <form action="" class="eleccionColor" id="eleccionColor">
+                            <input type="radio" name="color" id="color1" value="Color 1">
+                            <label for="color1"></label>
+                            
+                            <input type="radio" name="color" id="color2" value="Color 2">
+                            <label for="color2"></label>
+                            <br>
+                            <input type="radio" name="color" id="color3" value="Color 3">
+                            <label for="color3"></label>
+                        
+                            <input type="radio" name="color" id="color4" value="Color 4">
+                            <label for="color4"></label>
+                            <br>
+                            <input type="radio" name="color" id="color5" value="Color 5">
+                            <label for="color5"></label>
+                        
+                            <input type="radio" name="color" id="color6" value="Color 6">
+                            <label for="color6"></label>
+
+                            <input type="button" id="previsualizar" value="Previsualizar">
+                        </form>
+                    </div>
+                    
                     
                 </div>
 
@@ -56,6 +79,7 @@
         </form>
     </div>
 </div>
-    <script src="../js/registro.js"></script>
+<script src="../js/registro.js"></script>
+<script src="../js/previsualizarColor.js"></script>
 </body>
 </html>
