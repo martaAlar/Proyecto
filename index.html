@@ -27,11 +27,11 @@
     -->
     <h4 class="error"></h4>
     <div class="marcoCentral" style="font-size: 18px;" id="login">
-        <form>
+        <form  action="php/validarUsuario.php" method="post">
             <h3 class="titulos" id="titulo">Inicio de sesión </h3>
-            <input class="formularioEntrada" placeholder="Nombre de usuario" type="text" id="nombre">
+            <input class="formularioEntrada" name="username" placeholder="Nombre de usuario" type="text" id="nombre">
             <br><br>
-            <input  class="formularioEntrada" placeholder="Contraseña" type="password" id="password">
+            <input  class="formularioEntrada" name="contrasena" placeholder="Contraseña" type="password" id="password">
             <br><br><br>
             <input type="submit" name="Enviar" value="Entrar" class="botones" id="boton">
         </form>

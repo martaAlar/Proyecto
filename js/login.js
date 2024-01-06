@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.querySelector('form').addEventListener('submit', function (event) {
+/*document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault(); 
 
     // Registra los valores
@@ -90,5 +90,5 @@ document.querySelector('form').addEventListener('submit', function (event) {
         document.getElementById('nombre').value = '';
         document.getElementById('password').value = '';
     }
-});
+});*/
 
