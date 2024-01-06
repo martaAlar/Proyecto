@@ -227,7 +227,7 @@ class BDUsuario extends BDGestion {
 			/** @var PDOStatement Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
 					"SELECT *
-					 FROM Usuario
+					 FROM usuarios
 					 WHERE email = :email");
 			/** Vincula un parámetro al nombre de variable especificado. */
 			$resultado->bindParam(':email', $this->email);
@@ -256,7 +256,7 @@ class BDUsuario extends BDGestion {
 			/** @var PDOStatement Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
 				"SELECT *
-				 FROM Usuario
+				 FROM usuarios
 				 WHERE username = :username AND contrasena = :contrasena");
 			/** Vincula un parámetro al nombre de variable especif:contrasenaicado. */
 			$resultado->bindParam(':username', $this->username);
