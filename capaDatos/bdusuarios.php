@@ -55,6 +55,11 @@ class BDUsuario extends BDGestion {
 	 * @access private 
 	 */
 	private string $fechaNac;
+	/**
+	 * @var string Color del perfil del usuario.
+	 * @access private 
+	 */
+	private string $colorPerfil;
 
     /**
 	 * Método que inicializa el atributo userId.
@@ -137,7 +142,16 @@ class BDUsuario extends BDGestion {
     public function setFechaNac(string $fechaNac): void {
         $this->fechaNac = $fechaNac;
     }
-
+	/**
+	 * Método que inicializa el atributo fechaNac.
+	 * 
+	 * @access public
+	 * @param string $fechaNac Fecha de nacimiento del usuario.
+	 * @return void 
+	 */
+    public function setColorPerfil(string $colorPerfil): void {
+        $this->colorPerfil = $colorPerfil;
+    }
 
 
     /**
@@ -212,37 +226,15 @@ class BDUsuario extends BDGestion {
     public function getFechaNac(): string {
         return $this->fechaNac;
     }
-
-
-
 	/**
-	 * Método que comprueba si existe el usuario en la base de datos.
+	 * Método que devuelve el valor del atributo $colorPerfil.
 	 * 
 	 * @access public
-	 * @return boolean True si existe el email del usuario y False en otro caso
+	 * @return string Color del perfil del usuario.
 	 */
-	public function existeUsuario() : bool {
-		/** Comprueba si existe conexión con la base de datos. */
-		if ($this->getPdocon()) {
-			/** @var PDOStatement Prepara la sentencia SQL. */
-			$resultado = $this->getPdocon()->prepare(
-					"SELECT *
-					 FROM usuarios
-					 WHERE email = :email");
-			/** Vincula un parámetro al nombre de variable especificado. */
-			$resultado->bindParam(':email', $this->email);
-			/** Ejecuta la sentencia preparada y comprueba un posible error. */
-			if ($resultado->execute()) {
-				/** Comprueba que el número de filas sea 1. */
-				if ($resultado->rowCount() === 1) {
-					/** Existe el email del usuario. */
-					return true;
-				}
-			}
-		}
-		/** No existe el email del usuario. */
-		return false;
-	}
+    public function getColorPerfil(): string {
+        return $this->colorPerfil;
+    }
 
 	/**
 	 * Método que valida un usuario en la base de datos.
@@ -286,17 +278,21 @@ class BDUsuario extends BDGestion {
 	 * @access public
 	 * @return boolean True si tiene éxito y False en otro caso
 	 */
-	public function insertaUsuario() : bool {
+	public function insertaUsuarioPrimParte() : bool {
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-					"INSERT INTO Usuario (email, contraseña, nombre)
-					VALUES (:email, :contrasena, :nombre)");
+					"INSERT INTO usuarios (username, contrasena, nombre, prApellido, segApellido, email, fechaNac)
+					VALUES (:email, :contrasena, :nombre, :prApellido, :segApellido, :email, :fechaNac)");
 			/** Vincula los parámetros al nombre de variable especificado. */
-			$resultado->bindParam(':email', $this->email);
+			$resultado->bindParam(':username', $this->username);
 			$resultado->bindParam(':contrasena', $this->contrasena);
 			$resultado->bindParam(':nombre', $this->nombre);
+			$resultado->bindParam(':prApellido', $this->prApellido);
+			$resultado->bindParam(':segApellido', $this->segApellido);
+			$resultado->bindParam(':email', $this->email);
+			$resultado->bindParam(':fechaNac', $this->fechaNac);
 			/** Ejecuta la sentencia preparada y comprueba un posible error. */
 			if ($resultado->execute()) {
 				/** Devuelve true si se ha conseguido. */
@@ -313,15 +309,16 @@ class BDUsuario extends BDGestion {
 	 * @access public
 	 * @return boolean True si tiene éxito y False en otro caso
 	 */
-	public function eliminaUsuario() : bool {
+	public function registrarColorPerfil($IdUsuario, $colorPerfil) : bool {
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-					"DELETE FROM Usuario
-					 WHERE email = :email");
+				"INSERT INTO perfil(user_id, colorPerfil)
+				VALUES (:IdUsuario, :colorPerfil)");
 			/** Vincula un parámetro al nombre de variable especificado. */
-			$resultado->bindParam(':email', $this->email);
+			$resultado->bindParam(':IdUsuario', $IdUsuario);
+			$resultado->bindParam(':colorPerfil', $colorPerfil);
 			/** Ejecuta la sentencia preparada y comprueba un posible error. */
 			if ($resultado->execute()) {
 				/** Devuelve true si se ha conseguido. */

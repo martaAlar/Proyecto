@@ -34,8 +34,7 @@
 		if ($usuario->validaUsuario()) {
 			/** Redirige al perfil. */
 			header('Location: ../html/perfil.html');
-								die();
-
+			die();
 		}
 		else {
 			/** No es posible validar el usuario. */
@@ -57,7 +56,7 @@
 	}
 	else {
 		/** Si algún campo del formulario no está inicializado... */
-		if (isset($_POST['username']) || isset($_POST['contraseña'])) {
+		if (isset($_POST['username']) || isset($_POST['contrasena'])) {
 			?>
 				<div class="marcoCentral" style="font-size: 18px;" id="login">
                                     <h3 style="font-size: 15px; margin-top: -3.5%;">Todos los campos son obligatorios</h3>

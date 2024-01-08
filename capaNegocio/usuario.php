@@ -56,6 +56,12 @@ class Usuario {
 	 */
 	private string $fechaNac;
 
+	/**
+	 * @var string Color del perfil del usuario.
+	 * @access private 
+	 */
+	private string $colorPerfil;
+
     /**
 	 * Método que inicializa el atributo userId.
 	 * 
@@ -138,6 +144,17 @@ class Usuario {
         $this->fechaNac = $fechaNac;
     }
 
+	/**
+	 * Método que inicializa el atributo $colorPerfil.
+	 * 
+	 * @access public
+	 * @param string $colorPerfil Color del perfil del usuario.
+	 * @return void 
+	 */
+    public function setColorPerfil(string $colorPerfil): void {
+        $this->colorPerfil = $colorPerfil;
+    }
+
 
 
     /**
@@ -212,7 +229,15 @@ class Usuario {
     public function getFechaNac(): string {
         return $this->fechaNac;
     }
-
+	/**
+	 * Método que devuelve el valor del atributo $colorPerfil.
+	 * 
+	 * @access public
+	 * @return string Color del perfil del usuario.
+	 */
+    public function getColorPerfil(): string {
+        return $this->colorPerfil;
+    }
 
 
     /**
@@ -248,25 +273,30 @@ class Usuario {
 
     
 	/**
-	 * Método que comprueba si existe el usuario.
+	 * Registra la primera parte de datos del usuario.
 	 *
 	 * @access public
 	 * @return boolean	True en caso afirmativo
 	 * 					False en caso contrario.
 	 */
-	public function existeUsuario() : bool {
+	public function insertarUsuarioPrimParte() : bool {
 		/** @var BDUsuario Instancia un objeto de la clase. */
 		$bdusuario = new BDUsuario();
 		/** Inicializa los atributos del objeto. */
-		$bdusuario->setEmail($this->email);
-		$bdusuario->setContrasena($this->contrasena);
 		$bdusuario->setNombre($this->nombre);
-		/** Comprueba si existe el usuario. */
-		if ($bdusuario->existeUsuario()) {
-			/** El usuario existe. */
+		$bdusuario->setPrApellido($this->prApellido);
+		$bdusuario->setSegApellido($this->segApellido);
+		$bdusuario->setEmail($this->email);
+		$bdusuario->setFechaNac($this->fechaNac);
+		$bdusuario->setUsername($this->username);
+		$bdusuario->setContrasena($this->contrasena);
+		$bdusuario->setColorPerfil($this->colorPerfil);
+		/** Inserta un nuevo usuario y comprueba un posible error. */
+		if ($bdusuario->insertaUsuarioPrimParte()) {
+			/** Devuelve true si se ha conseguido. */
 			return true;
 		}
-		/** El usuario no existe. */
+		/** Devuelve false si se ha producido un error. */
 		return false;
 	}
 
@@ -277,7 +307,7 @@ class Usuario {
 	 * @return boolean	True en caso afirmativo
 	 * 					False en caso contrario.
 	 */
-	public function almacenaUsuario() : bool {
+	public function registrarColorPerfil() : bool {
 		/** @var BDUsuario Instancia un objeto de la clase. */
 		$bdusuario = new BDUsuario();
 		/** Inicializa los atributos del objeto. */
