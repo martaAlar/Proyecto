@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (selectedColor.value === "Color 6") {
                 colorFondoBase.style.background = "linear-gradient(50deg, #f0ebeb, #b191b8)";
             } else {
-                console.log("No color selected");
+                console.log("Error: no se ha seleccionado color");
             }
         }
     })
