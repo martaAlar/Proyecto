@@ -27,6 +27,8 @@ CREATE TABLE configPerfil(
     colorPerfil VARCHAR(7),
     bannerPerfil VARCHAR(255),
     descripcion TEXT,
+    tamañoTexto INT,
+    
     FOREIGN KEY (user_id) REFERENCES usuarios(user_id)
 );
 DROP TABLE IF EXISTS posts;
