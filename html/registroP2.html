@@ -28,29 +28,48 @@
                     <button onclick="negrita()" style="font-weight:bold;" class="botones">N</button>
                     <button onclick="copiar()" style="font-weight:bold;" class="botones">copiar</button>
                     <button onclick="cursiva()" style="font-weight:bold;" class="botones"><i>K</i></button>
-
+                    <button onclick="mostrarVariable()">Mostrar contenido variable</button>
             <script>
-                function negrita() {
+                let contenidoEditDiv = "";
+                function mostrarVariable(){
+                    contenidoEditDiv = document.getElementById("editableDiv").innerHTML;
+                    console.log(contenidoEditDiv);
+                }
+
+                /*function negrita() {
                     var selectedText = window.getSelection().toString();
                     if (selectedText.length > 0) {
                         document.execCommand('bold', false, null);
                     }
+                }*/
+                function negrita() {
+                    let etiqueta = 'b';
+                    añadirEtiqueta(etiqueta);
                 }
 
                 function copiar() {
-                    var selectedText = window.getSelection().toString();
+                    let selectedText = window.getSelection().toString();
                     if (selectedText.length > 0) {
                         document.execCommand('copy', false, null);
                     }
                 }
 
                 function cursiva() {
-                    var selectedText = window.getSelection().toString();
-                    if (selectedText.length > 0) {
-                        document.execCommand('italic', false, null);
+                    let etiqueta = 'i';
+                    añadirEtiqueta(etiqueta);
+                }
+                function añadirEtiqueta(nombreEtiqueta) {
+                    let seleccion = window.getSelection();
+                    let textoSeleccionado = window.getSelection().toString();
+                    if (textoSeleccionado.length > 0) {
+                        let rango = seleccion.getRangeAt(0);
+                        let nuevaEtiqueta = document.createElement(nombreEtiqueta);
+                        rango.deleteContents();
+                        rango.insertNode(nuevaEtiqueta);
+                        nuevaEtiqueta.appendChild(document.createTextNode(textoSeleccionado));
                     }
                 }
-                
+
                 //const editableDiv = document.getElementById("editableDiv");
 
                 /*editableDiv.addEventListener("input", function () {

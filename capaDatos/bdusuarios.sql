@@ -20,8 +20,8 @@ CREATE TABLE usuarios(
     email VARCHAR(80),
     fechaNac DATE
 );
-DROP TABLE IF EXISTS perfil;
-CREATE TABLE perfil(
+DROP TABLE IF EXISTS configPerfil;
+CREATE TABLE configPerfil(
     user_id INT PRIMARY KEY,
     fotoPerfil VARCHAR(255),
     colorPerfil VARCHAR(7),
