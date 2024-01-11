@@ -21,7 +21,7 @@ function cargarContenido() {
 
     // Crea un elemento iframe
     var iframe = document.createElement('iframe');
-    iframe.src = 'registroP1.html'; // Especifica la ruta del documento HTML
+    iframe.src = '../html/panelConfiguracion.html'; // Especifica la ruta del documento HTML
 
     // Establece las dimensiones del iframe 
     iframe.width = '1000';

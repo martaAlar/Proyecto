@@ -41,3 +41,21 @@ CREATE TABLE posts(
     likes INT DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES usuarios(user_id)
 );
+DROP TABLE IF EXISTS bloqueos;
+CREATE TABLE bloqueos (
+    bloqueante_id INT,
+    bloqueado_id INT,
+    PRIMARY KEY (bloqueante_id, bloqueado_id),
+    FOREIGN KEY (bloqueante_id) REFERENCES usuarios(user_id),
+    FOREIGN KEY (bloqueado_id) REFERENCES usuarios(user_id)
+);
+/*DELETE FROM bloqueos WHERE bloqueante_id = 1 AND bloqueado_id = 2; 
+    orden para desbloquear
+
+  -- Assuming 'currentUserId' is the ID of the user whose profile is being viewed
+  SELECT user_id, username FROM usuarios
+  WHERE id NOT IN (SELECT bloqueado_id FROM bloqueos WHERE bloqueante_id = currentUserId)
+  ORDER BY RANDOM()
+  LIMIT 5; -- Adjust the limit as needed
+    en matching, para evitar mostrar usuarios que están bloqueados
+*/
