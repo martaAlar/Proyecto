@@ -11,6 +11,17 @@
     z-index: -10;
 }
 /*PEQUEÑOS ELEMENTOS*/
+.titulos {
+    font-family:Helvetica;
+    color:rgb(114, 102, 102);
+    text-align: center;
+    font-size: 27px;
+}
+.informacion {
+    font-size: 15px;
+    font-family:Helvetica;
+    color:rgb(133, 118, 118);
+}
 .banderas {
     height: 15px;
     width: 15px;

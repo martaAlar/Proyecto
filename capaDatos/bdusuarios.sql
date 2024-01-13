@@ -31,6 +31,15 @@ CREATE TABLE configPerfil(
     
     FOREIGN KEY (user_id) REFERENCES usuarios(user_id)
 );
+DROP TABLE IF EXISTS redesSociales;
+CREATE TABLE redesSociales(
+    user_id INT PRIMARY KEY,
+    logoRed VARCHAR(255),
+    nombreRed VARCHAR(20),
+    linkRed VARCHAR(255),
+    
+    FOREIGN KEY (user_id) REFERENCES usuarios(user_id)
+);
 DROP TABLE IF EXISTS posts;
 CREATE TABLE posts(
     post_id INT PRIMARY KEY AUTO_INCREMENT,

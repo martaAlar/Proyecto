@@ -312,10 +312,9 @@ class Usuario {
 		$bdusuario = new BDUsuario();
 		/** Inicializa los atributos del objeto. */
 		$bdusuario->setEmail($this->email);
-		$bdusuario->setContrasena($this->contrasena);
-		$bdusuario->setNombre($this->nombre);
+		$bdusuario->setColorPerfil($this->colorPerfil);
 		/** Inserta un nuevo usuario y comprueba un posible error. */
-		if ($bdusuario->insertaUsuario()) {
+		if ($bdusuario->insertaUsuarioPrimParte()) {
 			/** Devuelve true si se ha conseguido. */
 			return true;
 		}

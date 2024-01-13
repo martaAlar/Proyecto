@@ -19,81 +19,76 @@
     -->
     <h4 class="error"></h4>
     <div class="marcoCentral" id="reg">
-        <form>
-            <h3 class="titulos" id="titulo">Descipción</h3>
-            <div>
-
-                <div contenteditable="true" id="editableDiv">Inserte el texto aquí...</div>
+        <h3 class="titulos" id="titulo">Edición de perfil</h3>
+        <div>
+            <div class="columnasDobles" style="float: left;margin-left: 30px;">
+                <button class="añadirFoto">+</button>
+                <br><br><br>
+                <button class="añadirBanner">+</button>
+            </div>
+            
+            <div class="columnasDobles" style="float: right;margin-right: 30px;">
+                <p class="informacion">Seleccione el color que se mostrará en el fondo de su perfil</p>
+                <form action="" class="eleccionColor" id="eleccionColor">
+                    <!--<input type="radio" name="color" id="color1" value="1">
+                    <label for="color1"></label>
                     
-                    <button onclick="negrita()" style="font-weight:bold;" class="botones">N</button>
-                    <button onclick="copiar()" style="font-weight:bold;" class="botones">copiar</button>
-                    <button onclick="cursiva()" style="font-weight:bold;" class="botones"><i>K</i></button>
-                    <button onclick="mostrarVariable()">Mostrar contenido variable</button>
-            <script>
-                let contenidoEditDiv = "";
-                function mostrarVariable(){
-                    contenidoEditDiv = document.getElementById("editableDiv").innerHTML;
-                    console.log(contenidoEditDiv);
-                }
+                    <input type="radio" name="color" id="color2" value="2">
+                    <label for="color2"></label>
 
-                /*function negrita() {
-                    var selectedText = window.getSelection().toString();
-                    if (selectedText.length > 0) {
-                        document.execCommand('bold', false, null);
-                    }
-                }*/
-                function negrita() {
-                    let etiqueta = 'b';
-                    añadirEtiqueta(etiqueta);
-                }
+                    <input type="radio" name="color" id="color3" value="3">
+                    <label for="color3"></label>
+                
+                    <input type="radio" name="color" id="color4" value="4">
+                    <label for="color4"></label>
 
-                function copiar() {
-                    let selectedText = window.getSelection().toString();
-                    if (selectedText.length > 0) {
-                        document.execCommand('copy', false, null);
-                    }
-                }
+                    <input type="radio" name="color" id="color5" value="5">
+                    <label for="color5"></label>
+                
+                    <input type="radio" name="color" id="color6" value="6">
+                    <label for="color6"></label>
 
-                function cursiva() {
-                    let etiqueta = 'i';
-                    añadirEtiqueta(etiqueta);
-                }
-                function añadirEtiqueta(nombreEtiqueta) {
-                    let seleccion = window.getSelection();
-                    let textoSeleccionado = window.getSelection().toString();
-                    if (textoSeleccionado.length > 0) {
-                        let rango = seleccion.getRangeAt(0);
-                        let nuevaEtiqueta = document.createElement(nombreEtiqueta);
-                        rango.deleteContents();
-                        rango.insertNode(nuevaEtiqueta);
-                        nuevaEtiqueta.appendChild(document.createTextNode(textoSeleccionado));
-                    }
-                }
+                    <input type="radio" name="color" id="color7" value="7">
+                    <label for="color7"></label>
+                
+                    <input type="radio" name="color" id="color8" value="8">
+                    <label for="color8"></label>
 
-                //const editableDiv = document.getElementById("editableDiv");
+                    <input type="radio" name="color" id="color9" value="9">
+                    <label for="color9"></label>
+                
+                    <input type="radio" name="color" id="color10" value="10">
+                    <label for="color10"></label>
+                    
+                    
+                    <input type="radio" name="color" id="color11" value="11">
+                    <label for="color11"></label>
+                
+                    <input type="radio" name="color" id="color12" value="12">
+                    <label for="color12"></label>
 
-                /*editableDiv.addEventListener("input", function () {
-                if (editableDiv.textContent === "" && !Focus) {
-                    editableDiv.textContent = "Enter your text here...";
-                } else {
-                    editableDiv.textContent("");
-                }
-                });
-                editableDiv.addEventListener("focus", function () {
-                    if (editableDiv.textContent.trim() === "Enter your text here...") {
-                        editableDiv.textContent = "hola";
-                    }
-                });*/
-            </script>    
+                    <br><br>
 
+                    <input type="button" id="previsualizar" value="Previsualizar">
+                    -->
+                    <br>
+                    <input type="color" id="selectorColor" value="#A38080">
+
+                    <br><br><br>
+                    <input type="button" id="previsualizar" value="Previsualizar color">
+                </form>
+                
+                
             </div>
-            <div style="clear: both; text-align: center;">
-                <button class="botones" style="float: left; margin-left: 15px;"><a href="registroP1.html" class="vinculos"><< Atrás</a></button>
-                <button style="float: right; margin-right: 15px;" class="botones"><a href="registroP3.html" class="vinculos">Siguiente >></a></button>
-            </div>
-        </form>
+
+        </div>
+        <div style="clear: both; text-align: center;">
+            <button class="botones" style="float: left; margin-left: 15px;"><a href="../index.html" class="vinculos"><< Atrás</a></button>
+            <input type="submit" style="float: right; margin-right: 15px;"  name="Enviar" value="Siguiente >>" class="botones" id="boton"> 
+        </div>
     </div>
 </div>
     <script src="../js/registro.js"></script>
+    <script src="../js/previsualizarColor.js"></script>
 </body>
 </html>
