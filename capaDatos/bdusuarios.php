@@ -142,16 +142,6 @@ class BDUsuario extends BDGestion {
     public function setFechaNac(string $fechaNac): void {
         $this->fechaNac = $fechaNac;
     }
-	/**
-	 * Método que inicializa el atributo fechaNac.
-	 * 
-	 * @access public
-	 * @param string $fechaNac Fecha de nacimiento del usuario.
-	 * @return void 
-	 */
-    public function setColorPerfil(string $colorPerfil): void {
-        $this->colorPerfil = $colorPerfil;
-    }
 
 
     /**
@@ -226,15 +216,7 @@ class BDUsuario extends BDGestion {
     public function getFechaNac(): string {
         return $this->fechaNac;
     }
-	/**
-	 * Método que devuelve el valor del atributo $colorPerfil.
-	 * 
-	 * @access public
-	 * @return string Color del perfil del usuario.
-	 */
-    public function getColorPerfil(): string {
-        return $this->colorPerfil;
-    }
+	
 
 	/**
 	 * Método que valida un usuario en la base de datos.

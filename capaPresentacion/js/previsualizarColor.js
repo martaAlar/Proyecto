@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var selecColor;
+    /*var selecColor;
 
     var botonPrev = document.getElementById("previsualizar");
 
@@ -25,6 +25,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log("Error: no se ha seleccionado color");
             }
         }
-    })
+    })*/
+
+    
+
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+let colorSeleccionado;
+
+const colorBase = '#A38080';
+const colorDegradado = '#F0EBEB';
+
+window.addEventListener("load", previsualizar, false);
+
+function previsualizar() {
+    colorSeleccionado = document.querySelector('#selectorColor');
+    colorSeleccionado.value = colorBase;
+
+    colorSeleccionado.addEventListener("input", actualizar, false);
+
+    function actualizar() {
+        var colorFondoBase = document.querySelector(".fondo");
+        colorFondoBase.style.background = "linear-gradient(50deg, #f0ebeb, "+colorSeleccionado.value+")";
+    }
+} 
+});

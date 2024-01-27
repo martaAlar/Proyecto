@@ -1,0 +1,44 @@
+@import url(hojaCentral.css);
+
+/*.botonesElección{
+    border-radius: 10px;
+    border:0px;
+    background-color: rgba(255, 255, 255, 0.519);
+    margin-bottom: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family:'Helvetica';
+    
+}*/
+.marcoCentral {
+    height: 320px;
+}
+.botonesElección + label{
+    border: solid 1px rgba(50, 50, 50, 0.053);
+    background-color: rgba(255, 255, 255, 0.529);
+    border-radius: 10px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 6px;
+    display: inline-block;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+input[type="checkbox"]:checked + label{
+    box-shadow: 0 0 3px 3px #6862622d;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
