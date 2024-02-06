@@ -93,19 +93,31 @@ body {
 }
 
 .barraBusqueda {
-    border-radius: 20px;
-    padding: 6px;
-
+    padding: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
-.lupa {
-    background-image: url('/recursos/iconos/lupa.png');
+#lupa {
     background-size: contain;
     background-repeat: no-repeat;
     border: transparent;
-    width: 25px;
-    height: 25px;
-    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    padding-top: 2px;
+}
+
+#buscar {
+    padding-left: 5px;
+    background-color: rgb(234, 230, 230);
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+#buscar:hover {
+    background-color: rgb(221, 221, 221);
 }
 
 #informacion {
@@ -206,7 +218,8 @@ body {
 
 .pfpMatching {
     width: 25%;
-    border-radius: 90px;
+    height: 25%;
+    border-radius: 100px;
     margin-right: 10px;
     margin-bottom: 8px; 
 }
