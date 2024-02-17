@@ -5,6 +5,7 @@
  */
 
 /** Incluye la clase. */
+echo 'Ya en bdusuarios';
 include 'bdgestion.php';
 
 /**
