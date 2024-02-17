@@ -5,8 +5,10 @@
  */
 
 /** Incluye la clase. */
-include '../capaDatos/bdredes.php';
-include 'usuario.php';
+echo 'redes.php antes del include';
+include_once '../capaDatos/bdredes.php';
+include_once 'usuario.php';
+echo 'redes.php despues del include';
 
 /**
  * Declaración de la clase Usuario
