@@ -21,7 +21,7 @@
  <?php
 
 	/** Incluye la clase Usuario. */
-	include '../capaNegocio/usuario.php';
+	include '../../capaNegocio/usuario.php';
 
 	/** Si todos los campos del formulario tienen algún valor... */
 	if (!empty($_POST['username']) && !empty($_POST['contrasena'])) {
