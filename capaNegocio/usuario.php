@@ -5,8 +5,9 @@
  */
 
 /** Incluye la clase. */
-include '../capaDatos/bdusuarios.php';
-
+echo 'Antes      ';
+include_once 'capaDatos/bdusuarios.php';
+echo 'Incluye bdusuarios';
 /**
  * Declaración de la clase Usuario
 */
@@ -55,12 +56,6 @@ class Usuario {
 	 * @access private 
 	 */
 	private string $fechaNac;
-
-	/**
-	 * @var string Color del perfil del usuario.
-	 * @access private 
-	 */
-	private string $colorPerfil;
 
     /**
 	 * Método que inicializa el atributo userId.
@@ -144,17 +139,6 @@ class Usuario {
         $this->fechaNac = $fechaNac;
     }
 
-	/**
-	 * Método que inicializa el atributo $colorPerfil.
-	 * 
-	 * @access public
-	 * @param string $colorPerfil Color del perfil del usuario.
-	 * @return void 
-	 */
-    public function setColorPerfil(string $colorPerfil): void {
-        $this->colorPerfil = $colorPerfil;
-    }
-
 
 
     /**
@@ -229,15 +213,7 @@ class Usuario {
     public function getFechaNac(): string {
         return $this->fechaNac;
     }
-	/**
-	 * Método que devuelve el valor del atributo $colorPerfil.
-	 * 
-	 * @access public
-	 * @return string Color del perfil del usuario.
-	 */
-    public function getColorPerfil(): string {
-        return $this->colorPerfil;
-    }
+
 
 
     /**
@@ -249,18 +225,18 @@ class Usuario {
 	 */
 	public function validaUsuario() : bool {
 
-		/** @var BDUsuario Instancia un objeto de la clase. */
-		$bdusuario = new BDUsuario();
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
 
 		/** Inicializa los atributos del objeto. */
-		$bdusuario->setUsername($this->username);
-		$bdusuario->setContrasena($this->contrasena);
+		$bdusuarios->setUsername($this->username);
+		$bdusuarios->setContrasena($this->contrasena);
 
 		/** Comprueba si existe y gestiona un posible error. */
-		if ($bdusuario->validaUsuario()) {
+		if ($bdusuarios->validaUsuario()) {
 			/** Inicializa los atributos del objeto con los datos almacenados. */
-			$this->username = $bdusuario->getUsername();
-			$this->contrasena = $bdusuario->getContrasena();
+			$this->username = $bdusuarios->getUsername();
+			$this->contrasena = $bdusuarios->getContrasena();
 
 			/** Devuelve true si se ha conseguido. */
 			return true;
@@ -273,30 +249,25 @@ class Usuario {
 
     
 	/**
-	 * Registra la primera parte de datos del usuario.
+	 * Método que comprueba si existe el usuario.
 	 *
 	 * @access public
 	 * @return boolean	True en caso afirmativo
 	 * 					False en caso contrario.
 	 */
-	public function insertarUsuarioPrimParte() : bool {
-		/** @var BDUsuario Instancia un objeto de la clase. */
-		$bdusuario = new BDUsuario();
+	public function existeUsuario() : bool {
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
 		/** Inicializa los atributos del objeto. */
-		$bdusuario->setNombre($this->nombre);
-		$bdusuario->setPrApellido($this->prApellido);
-		$bdusuario->setSegApellido($this->segApellido);
-		$bdusuario->setEmail($this->email);
-		$bdusuario->setFechaNac($this->fechaNac);
-		$bdusuario->setUsername($this->username);
-		$bdusuario->setContrasena($this->contrasena);
-		$bdusuario->setColorPerfil($this->colorPerfil);
-		/** Inserta un nuevo usuario y comprueba un posible error. */
-		if ($bdusuario->insertaUsuarioPrimParte()) {
-			/** Devuelve true si se ha conseguido. */
+		$bdusuarios->setEmail($this->email);
+		$bdusuarios->setContrasena($this->contrasena);
+		$bdusuarios->setNombre($this->nombre);
+		/** Comprueba si existe el usuario. */
+		if ($bdusuarios->existeUsuario()) {
+			/** El usuario existe. */
 			return true;
 		}
-		/** Devuelve false si se ha producido un error. */
+		/** El usuario no existe. */
 		return false;
 	}
 
@@ -307,14 +278,15 @@ class Usuario {
 	 * @return boolean	True en caso afirmativo
 	 * 					False en caso contrario.
 	 */
-	public function registrarColorPerfil() : bool {
-		/** @var BDUsuario Instancia un objeto de la clase. */
-		$bdusuario = new BDUsuario();
+	public function almacenaUsuario() : bool {
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
 		/** Inicializa los atributos del objeto. */
-		$bdusuario->setEmail($this->email);
-		$bdusuario->setColorPerfil($this->colorPerfil);
+		$bdusuarios->setEmail($this->email);
+		$bdusuarios->setContrasena($this->contrasena);
+		$bdusuarios->setNombre($this->nombre);
 		/** Inserta un nuevo usuario y comprueba un posible error. */
-		if ($bdusuario->insertaUsuarioPrimParte()) {
+		if ($bdusuarios->insertaUsuario()) {
 			/** Devuelve true si se ha conseguido. */
 			return true;
 		}

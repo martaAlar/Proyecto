@@ -5,15 +5,16 @@
  */
 
 /** Incluye la clase. */
-echo 'redes.php antes del include';
-include_once '../capaDatos/bdredes.php';
-include_once 'usuario.php';
-echo 'redes.php despues del include';
+echo 'redes.php antes del include      ';
+include_once 'capaDatos/bdredes.php';
+echo 'Incluye la clase bdredes      ';
+include 'Usuario.php';
+echo 'redes.php despues del include      ';
 
 /**
- * Declaración de la clase Usuario
+ * Declaración de la clase Redes
 */
-class Redes {
+class Redes extends BDGestion{
 
 	/**
 	 * @var string Color del perfil del usuario.

@@ -5,13 +5,12 @@
  */
 
 /** Incluye la clase. */
-echo 'Ya en bdusuarios';
-include 'bdgestion.php';
+include 'capaDatos/bdgestion.php';
 
 /**
  * Declaración de la clase BDUsuario que hereda de BDGestion.
 */
-class BDUsuario extends BDGestion {
+class BDUsuarios extends BDGestion {
 
     /**
 	 * @var string ID del usuario.
@@ -56,11 +55,6 @@ class BDUsuario extends BDGestion {
 	 * @access private 
 	 */
 	private string $fechaNac;
-	/**
-	 * @var string Color del perfil del usuario.
-	 * @access private 
-	 */
-	private string $colorPerfil;
 
     /**
 	 * Método que inicializa el atributo userId.
@@ -145,6 +139,7 @@ class BDUsuario extends BDGestion {
     }
 
 
+
     /**
 	 * Método que devuelve el valor del atributo userId.
 	 * 
@@ -217,7 +212,37 @@ class BDUsuario extends BDGestion {
     public function getFechaNac(): string {
         return $this->fechaNac;
     }
-	
+
+
+
+	/**
+	 * Método que comprueba si existe el usuario en la base de datos.
+	 * 
+	 * @access public
+	 * @return boolean True si existe el email del usuario y False en otro caso
+	 */
+	public function existeUsuario() : bool {
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+					"SELECT *
+					 FROM Usuario
+					 WHERE email = :email");
+			/** Vincula un parámetro al nombre de variable especificado. */
+			$resultado->bindParam(':email', $this->email);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que el número de filas sea 1. */
+				if ($resultado->rowCount() === 1) {
+					/** Existe el email del usuario. */
+					return true;
+				}
+			}
+		}
+		/** No existe el email del usuario. */
+		return false;
+	}
 
 	/**
 	 * Método que valida un usuario en la base de datos.
@@ -261,21 +286,17 @@ class BDUsuario extends BDGestion {
 	 * @access public
 	 * @return boolean True si tiene éxito y False en otro caso
 	 */
-	public function insertaUsuarioPrimParte() : bool {
+	public function insertaUsuario() : bool {
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-					"INSERT INTO usuarios (username, contrasena, nombre, prApellido, segApellido, email, fechaNac)
-					VALUES (:email, :contrasena, :nombre, :prApellido, :segApellido, :email, :fechaNac)");
+					"INSERT INTO Usuario (email, contraseña, nombre)
+					VALUES (:email, :contrasena, :nombre)");
 			/** Vincula los parámetros al nombre de variable especificado. */
-			$resultado->bindParam(':username', $this->username);
+			$resultado->bindParam(':email', $this->email);
 			$resultado->bindParam(':contrasena', $this->contrasena);
 			$resultado->bindParam(':nombre', $this->nombre);
-			$resultado->bindParam(':prApellido', $this->prApellido);
-			$resultado->bindParam(':segApellido', $this->segApellido);
-			$resultado->bindParam(':email', $this->email);
-			$resultado->bindParam(':fechaNac', $this->fechaNac);
 			/** Ejecuta la sentencia preparada y comprueba un posible error. */
 			if ($resultado->execute()) {
 				/** Devuelve true si se ha conseguido. */
@@ -292,16 +313,15 @@ class BDUsuario extends BDGestion {
 	 * @access public
 	 * @return boolean True si tiene éxito y False en otro caso
 	 */
-	public function registrarColorPerfil($IdUsuario, $colorPerfil) : bool {
+	public function eliminaUsuario() : bool {
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-				"INSERT INTO perfil(user_id, colorPerfil)
-				VALUES (:IdUsuario, :colorPerfil)");
+					"DELETE FROM Usuario
+					 WHERE email = :email");
 			/** Vincula un parámetro al nombre de variable especificado. */
-			$resultado->bindParam(':IdUsuario', $IdUsuario);
-			$resultado->bindParam(':colorPerfil', $colorPerfil);
+			$resultado->bindParam(':email', $this->email);
 			/** Ejecuta la sentencia preparada y comprueba un posible error. */
 			if ($resultado->execute()) {
 				/** Devuelve true si se ha conseguido. */

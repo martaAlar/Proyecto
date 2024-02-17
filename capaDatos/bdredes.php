@@ -5,13 +5,14 @@
  */
 
 /** Incluye la clase. */
-include 'bdgestion.php';
+echo 'Lo ha pasado';
 include 'bdusuarios.php';
+echo 'Incluye bdusuarios';
 
 /**
  * Declaración de la clase BDperfil que hereda de BDUsuario.
 */
-class BDredes extends BDUsuario {
+class BDredes extends BDUsuarios {
 	/**
 	 * @var string Color del perfil del usuario.
 	 * @access private 
