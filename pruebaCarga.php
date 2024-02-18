@@ -10,7 +10,7 @@
         <tr>
             <?php
             echo 'pruebaCarga antes del include';
-            include 'capaNegocio/redes.php';
+            include_once 'capaNegocio/redes.php';
             echo 'pruebaCarga despues del include';
             $red = new Redes();
             $arrayRedes = $red->redesUsuario();

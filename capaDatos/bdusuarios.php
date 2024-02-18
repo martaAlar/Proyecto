@@ -5,7 +5,7 @@
  */
 
 /** Incluye la clase. */
-include 'capaDatos/bdgestion.php';
+include_once 'bdgestion.php';
 
 /**
  * Declaración de la clase BDUsuario que hereda de BDGestion.

@@ -18,59 +18,21 @@
     <a href="#pl" data-reload class="vinculos" id="Polaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a>
     -->
     <h4 class="error"></h4>
+    <form method="post">
     <div class="marcoCentral" id="reg">
         <h3 class="titulos" id="titulo">Edición de perfil</h3>
         <div>
             <div class="columnasDobles" style="float: left;margin-left: 30px;">
                 <button class="añadirFoto">+</button>
+                <input type="file" style="display: none;" id="inputFoto">
                 <br><br><br>
                 <button class="añadirBanner">+</button>
+                <input type="file" style="display: none;" id="inputBanner">
             </div>
             
             <div class="columnasDobles" style="float: right;margin-right: 30px;">
                 <p class="informacion">Seleccione el color que se mostrará en el fondo de su perfil</p>
                 <form action="" class="eleccionColor" id="eleccionColor">
-                    <!--<input type="radio" name="color" id="color1" value="1">
-                    <label for="color1"></label>
-                    
-                    <input type="radio" name="color" id="color2" value="2">
-                    <label for="color2"></label>
-
-                    <input type="radio" name="color" id="color3" value="3">
-                    <label for="color3"></label>
-                
-                    <input type="radio" name="color" id="color4" value="4">
-                    <label for="color4"></label>
-
-                    <input type="radio" name="color" id="color5" value="5">
-                    <label for="color5"></label>
-                
-                    <input type="radio" name="color" id="color6" value="6">
-                    <label for="color6"></label>
-
-                    <input type="radio" name="color" id="color7" value="7">
-                    <label for="color7"></label>
-                
-                    <input type="radio" name="color" id="color8" value="8">
-                    <label for="color8"></label>
-
-                    <input type="radio" name="color" id="color9" value="9">
-                    <label for="color9"></label>
-                
-                    <input type="radio" name="color" id="color10" value="10">
-                    <label for="color10"></label>
-                    
-                    
-                    <input type="radio" name="color" id="color11" value="11">
-                    <label for="color11"></label>
-                
-                    <input type="radio" name="color" id="color12" value="12">
-                    <label for="color12"></label>
-
-                    <br><br>
-
-                    <input type="button" id="previsualizar" value="Previsualizar">
-                    -->
                     <br>
                     <input type="color" id="selectorColor" value="#A38080">
 
@@ -87,7 +49,47 @@
             <input type="submit" style="float: right; margin-right: 15px;"  name="Enviar" value="Siguiente >>" class="botones" id="boton"> 
         </div>
     </div>
+    </form>
 </div>
+    <script>
+        document.getElementsByClassName('añadirFoto')[0].addEventListener('click', function() {
+            document.getElementById('inputFoto').click();
+        })
+        document.getElementById('inputFoto').addEventListener('change', function() {
+            let foto = this.files.length - 1;
+            if(this.files && this.files[0]){
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    let boton1 = document.getElementsByClassName('añadirFoto')[0];
+                    boton1.style.backgroundImage = `url(${e.target.result})`;
+                    boton1.style.backgroundSize = 'cover';
+                    boton1.style.backgroundRepeat = 'no-repeat';
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+            
+        })
+
+        document.getElementsByClassName('añadirBanner')[0].addEventListener('click', function() {
+            document.getElementById('inputBanner').click();
+        })
+        document.getElementById('inputBanner').addEventListener('change', function() {
+            let foto = this.files.length - 1;
+            if(this.files && this.files[0]){
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    let boton2 = document.getElementsByClassName('añadirBanner')[0];
+                    boton2.style.backgroundImage = `url(${e.target.result})`;
+                    boton2.style.backgroundSize = 'cover';
+                    boton2.style.backgroundRepeat = 'no-repeat';
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+            
+        })
+    </script>
     <script src="../js/registro.js"></script>
     <script src="../js/previsualizarColor.js"></script>
 </body>

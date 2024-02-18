@@ -21,7 +21,7 @@
  <?php
 
 	/** Incluye la clase Usuario. */
-	include '../../capaNegocio/usuario.php';
+	include_once '../../capaNegocio/Usuario.php';
 
 	/** Si todos los campos del formulario tienen algún valor... */
 	if (!empty($_POST['username']) && !empty($_POST['contrasena'])) {
@@ -33,6 +33,8 @@
 		/** Valida el email y la contraseña del usuario. */
 		if ($usuario->validaUsuario()) {
 			/** Redirige al perfil. */
+			session_start();
+			$_SESSION['user'] = $usuario->getUsername();
 			header('Location: ../html/perfil.html');
 			die();
 		}
