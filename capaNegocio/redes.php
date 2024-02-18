@@ -5,11 +5,11 @@
  */
 
 /** Incluye la clase. */
-echo 'redes.php antes del include      ';
+echo 'redes.php antes del include<br>';
 include_once 'capaDatos/bdredes.php';
-echo 'Incluye la clase bdredes      ';
+echo 'Incluye la clase bdredes<br>';
 include 'Usuario.php';
-echo 'redes.php despues del include      ';
+echo 'redes.php despues del include<br>';
 
 /**
  * Declaración de la clase Redes

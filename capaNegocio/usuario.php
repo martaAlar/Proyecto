@@ -5,9 +5,9 @@
  */
 
 /** Incluye la clase. */
-echo 'Antes      ';
+echo 'Antes<br>';
 include_once 'capaDatos/bdusuarios.php';
-echo 'Incluye bdusuarios';
+echo 'Incluye bdusuarios en usuario.php<br>';
 /**
  * Declaración de la clase Usuario
 */

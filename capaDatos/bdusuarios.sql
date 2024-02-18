@@ -33,7 +33,8 @@ CREATE TABLE configPerfil(
 );
 DROP TABLE IF EXISTS redesSociales;
 CREATE TABLE redesSociales(
-    user_id INT PRIMARY KEY,
+    red_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
     logoRed VARCHAR(255),
     nombreRed VARCHAR(30),
     linkRed VARCHAR(255),

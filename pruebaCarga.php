@@ -16,9 +16,10 @@
             $arrayRedes = $red->redesUsuario();
 
             if ($arrayRedes) {
+                echo '<br>Devuelve bien';
                 foreach ($arrayRedes as $valor) {
             ?>
-            <!--
+            
             <tr>
                 <td>
                     <label for="link">Link:</label>
@@ -39,7 +40,7 @@
                     <input class="boton" type="submit" name="eliminar" value="Eliminar">
                 </td>
             </tr>
-                -->
+               
             <?php
                 }
             }
