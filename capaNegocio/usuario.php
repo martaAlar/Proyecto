@@ -5,9 +5,9 @@
  */
 
 /** Incluye la clase. */
-echo 'Antes<br>';
+//echo 'Antes<br>';
 include_once '../../capaDatos/bdusuarios.php';
-echo 'Incluye bdusuarios en usuario.php<br>';
+//echo 'Incluye bdusuarios en usuario.php<br>';
 /**
  * Declaración de la clase Usuario
 */
@@ -272,6 +272,48 @@ class Usuario {
 	}
 
 	/**
+	 * Método que comprueba si existe el nombre de usuario.
+	 *
+	 * @access public
+	 * @return boolean	True en caso afirmativo
+	 * 					False en caso contrario.
+	 */
+	public function existeUser() : bool {
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
+		/** Inicializa el atributo username del objeto. */
+		$bdusuarios->setUsername($this->username);
+		/** Comprueba si existe el nobre de usuario. */
+		if ($bdusuarios->existeUser()) {
+			/** El usuario existe. */
+			return true;
+		}
+		/** El usuario no existe. */
+		return false;
+	}
+
+	/**
+	 * Método que comprueba si existe el email de usuario.
+	 *
+	 * @access public
+	 * @return boolean	True en caso afirmativo
+	 * 					False en caso contrario.
+	 */
+	public function existeEmail() : bool {
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
+		/** Inicializa el atributo username del objeto. */
+		$bdusuarios->setEmail($this->email);
+		/** Comprueba si existe el nobre de usuario. */
+		if ($bdusuarios->existeEmail()) {
+			/** El usuario existe. */
+			return true;
+		}
+		/** El usuario no existe. */
+		return false;
+	}
+
+	/**
 	 * Método que añade un nuevo usuario.
 	 *
 	 * @access public
@@ -300,7 +342,7 @@ class Usuario {
 	 * @access public
 	 * @return array[]:string
 	 */
-	public function datosPerfil() : array {
+	/*public function datosPerfil() : array {
 		
-	}
+	}*/
 }

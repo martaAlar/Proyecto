@@ -219,7 +219,7 @@ class BDUsuarios extends BDGestion {
 	 * Método que comprueba si existe el usuario en la base de datos.
 	 * 
 	 * @access public
-	 * @return boolean True si existe el email del usuario y False en otro caso
+	 * @return boolean True si existe el usuario y False en otro caso
 	 */
 	public function existeUsuario() : bool {
 		/** Comprueba si existe conexión con la base de datos. */
@@ -228,6 +228,64 @@ class BDUsuarios extends BDGestion {
 			$resultado = $this->getPdocon()->prepare(
 					"SELECT *
 					 FROM Usuario
+					 WHERE email = :email");
+			/** Vincula un parámetro al nombre de variable especificado. */
+			$resultado->bindParam(':email', $this->email);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que el número de filas sea 1. */
+				if ($resultado->rowCount() === 1) {
+					/** Existe el email del usuario. */
+					return true;
+				}
+			}
+		}
+		/** No existe el usuario. */
+		return false;
+	}
+
+	/**
+	 * Método que comprueba si existe el nombre de usuario en la base de datos.
+	 * 
+	 * @access public
+	 * @return boolean True si existe el nombre del usuario y False en otro caso
+	 */
+	public function existeUser() : bool {
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+					"SELECT *
+					 FROM usuarios
+					 WHERE username = :username");
+			/** Vincula un parámetro al nombre de variable especificado. */
+			$resultado->bindParam(':username', $this->username);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que el número de filas sea 1. */
+				if ($resultado->rowCount() === 1) {
+					/** Existe el email del usuario. */
+					return true;
+				}
+			}
+		}
+		/** No existe el email del usuario. */
+		return false;
+	}
+
+	/**
+	 * Método que comprueba si existe el email en la base de datos.
+	 * 
+	 * @access public
+	 * @return boolean True si existe el email del usuario y False en otro caso
+	 */
+	public function existeEmail() : bool {
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+					"SELECT *
+					 FROM usuarios
 					 WHERE email = :email");
 			/** Vincula un parámetro al nombre de variable especificado. */
 			$resultado->bindParam(':email', $this->email);

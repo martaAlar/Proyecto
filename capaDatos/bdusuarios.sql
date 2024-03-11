@@ -18,7 +18,8 @@ CREATE TABLE usuarios(
     prApellido VARCHAR(40),
     segApellido VARCHAR(40),
     email VARCHAR(80),
-    fechaNac DATE
+    fechaNac DATE,
+    fechaRegistro DATE
 );
 DROP TABLE IF EXISTS configPerfil;
 CREATE TABLE configPerfil(
