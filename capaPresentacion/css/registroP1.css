@@ -8,12 +8,18 @@
             Fondo
     */
 /*ARREGLOS*/
-.botones{
-    margin-top: 15px;
+.divErrores {
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 6px;
+}
+.errores {
+    font-size: 15px;
+    margin-bottom: -1px;
 }
 /*MARCO CENTRAL*/
 .marcoCentral {
-    height: 360px;
+    height: 380px;
 }
 .formularioEntrada {
     background-color: transparent;
@@ -32,6 +38,7 @@
     color:rgb(114, 102, 102);
     text-align: center;
     font-size: 27px;
+    margin-top: 6px;
 }
 
 .eleccionColores label:empty {
