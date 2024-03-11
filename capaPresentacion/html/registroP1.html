@@ -31,7 +31,7 @@
                     <input class="formularioEntrada" name="segApellido" placeholder="Segundo apellido(opcional)" type="text" id="sgApellido">
                     <br><br>
                     <label style="font-family:Helvetica;color:rgb(114, 102, 102);"  id="fechaNac">Fecha de nacimiento</label>
-                    <input class="formularioEntrada" type="date" id="" name="fechaNac">
+                    <input class="formularioEntrada" type="date" id="fechaNacValor" name="fechaNac">
                     <br><br>
                 </div>
 
@@ -41,8 +41,13 @@
                     <input class="formularioEntrada" name="username" placeholder="Nombre de usuario" type="text" id="user">
                     <br><br>
                     <input  class="formularioEntrada" name="contrasena" placeholder="Contraseña" type="password" id="password">
-                    <br><br>
-                    <br><br>
+                    <br>
+                    <div class="divErrores">
+                        <p class="errores">Entre 10 y 30 caracteres</p>
+                        <p class="errores">Mayúscula</p>
+                        <p class="errores">Número</p>
+                        <p class="errores">Simbolo especial</p>
+                    </div>
                     
                     
                 </div>
@@ -55,6 +60,6 @@
         </form>
     </div>
 </div>
-<script src="../js/registro.js"></script>
+<script src="../js/registroValidacion.js"></script>
 </body>
 </html>

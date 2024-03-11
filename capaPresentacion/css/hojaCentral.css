@@ -30,7 +30,14 @@
     margin-top: 150px;
     text-align: center;
 }
-
+.divErrores {
+    text-align: left;
+    margin-left: 15px;
+}
+.errores {
+    font-size: 13px;
+    margin-bottom: -4px;
+}
 .vinculos {
     text-decoration: none;
     color: black;
