@@ -55,6 +55,12 @@ class BDUsuarios extends BDGestion {
 	 * @access private 
 	 */
 	private string $fechaNac;
+	
+	/**
+	 * @var string Fecha de registro del usuario.
+	 * @access private 
+	 */
+	private string $fechaReg;
 
     /**
 	 * Método que inicializa el atributo userId.
@@ -138,6 +144,17 @@ class BDUsuarios extends BDGestion {
         $this->fechaNac = $fechaNac;
     }
 
+    /**
+	 * Método que inicializa el atributo fechaReg.
+	 * 
+	 * @access public
+	 * @param string $fechaReg Fecha de regsitro del usuario.
+	 * @return void 
+	 */
+    public function setFechaReg(string $fechaReg): void {
+        $this->fechaReg = $fechaReg;
+    }
+
 
 
     /**
@@ -203,6 +220,7 @@ class BDUsuarios extends BDGestion {
     public function getEmail(): string {
         return $this->email;
     }
+
     /**
 	 * Método que devuelve el valor del atributo fechaNac.
 	 * 
@@ -213,7 +231,15 @@ class BDUsuarios extends BDGestion {
         return $this->fechaNac;
     }
 
-
+	/**
+	 * Método que devuelve el valor del atributo fechaReg.
+	 * 
+	 * @access public
+	 * @return string Fecha de registro del usuario.
+	 */
+    public function getFechaReg(): string {
+        return $this->fechaReg;
+    }
 
 	/**
 	 * Método que comprueba si existe el usuario en la base de datos.
@@ -344,17 +370,23 @@ class BDUsuarios extends BDGestion {
 	 * @access public
 	 * @return boolean True si tiene éxito y False en otro caso
 	 */
-	public function insertaUsuario() : bool {
+	public function insertarUsuarioDatos() : bool {
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-					"INSERT INTO Usuario (email, contraseña, nombre)
-					VALUES (:email, :contrasena, :nombre)");
+				"INSERT INTO usuarios (`user_id`, `username`, `contrasena`, `nombre`, `prApellido`, `segApellido`, `email`, `fechaNac`, `fechaRegistro`) 
+				VALUES (NULL, :username, :contrasena, :nombre, :prApellido, :segApellido, :email, :fechaNac, :fechaReg);"
+			);
 			/** Vincula los parámetros al nombre de variable especificado. */
 			$resultado->bindParam(':email', $this->email);
 			$resultado->bindParam(':contrasena', $this->contrasena);
 			$resultado->bindParam(':nombre', $this->nombre);
+			$resultado->bindParam(':prApellido', $this->prApellido);
+			$resultado->bindParam(':segApellido', $this->segApellido);
+			$resultado->bindParam(':username', $this->username);
+			$resultado->bindParam(':fechaNac', $this->fechaNac);
+			$resultado->bindParam(':fechaReg', $this->fechaReg);
 			/** Ejecuta la sentencia preparada y comprueba un posible error. */
 			if ($resultado->execute()) {
 				/** Devuelve true si se ha conseguido. */
@@ -364,6 +396,7 @@ class BDUsuarios extends BDGestion {
 		/** Devuelve false si se ha producido un error. */
 		return false;
 	}
+	
 
 	/**
 	 * Método que elimina un usuario existente de la base de datos.

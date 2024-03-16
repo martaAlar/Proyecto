@@ -25,19 +25,19 @@
     -->
     <h4 class="error"></h4>
     <div class="marcoCentral" id="reg">
-        <form action="../php/añadirUsuarioDatos.php" method="post">
+        <form action="../php/añadirUsuarioDatos.php" method="post" id="formulario">
             <h3 class="titulos" id="titulo">Registro</h3>
             <div>
 
                 <div class="columnasDobles" style="float: left;margin-left: 30px;">
-                    <input class="formularioEntrada" name="nombre" placeholder="Nombre" type="text" id="nombre" style="margin-top: 0px;">
+                    <input class="formularioEntrada" name="nombre" placeholder="Nombre" type="text" id="nombre" style="margin-top: 0px; width: 90%;"><i class="far fa-times-circle" id="erNombre"></i>
                     <br><br>
-                    <input class="formularioEntrada" name="prApellido" placeholder="Primer apellido" type="text" id="prApellido">
+                    <input class="formularioEntrada" name="prApellido" placeholder="Primer apellido" type="text" id="prApellido" style="width: 90%;"><i class="far fa-times-circle" id="erPrAp"></i>
                     <br><br>
-                    <input class="formularioEntrada" name="segApellido" placeholder="Segundo apellido(opcional)" type="text" id="sgApellido">
+                    <input class="formularioEntrada" name="segApellido" placeholder="Segundo apellido(opcional)" type="text" id="sgApellido" style="width: 90%;"><i class="far fa-circle" id="erSegAp"></i>
                     <br><br>
                     <label style="font-family:Helvetica;color:rgb(114, 102, 102);"  id="fechaNac">Fecha de nacimiento</label>
-                    <input class="formularioEntrada" type="date" id="fechaNacValor" name="fechaNac">
+                    <input class="formularioEntrada" type="date" id="fechaNacValor" name="fechaNac" style="margin-top: -8px;"><i class="far fa-times-circle" id="erFecha"></i>
                     <br><br>
                 </div>
 

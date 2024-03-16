@@ -19,7 +19,7 @@ abstract class BDGestion {
     /** 
      * @const string Nombre del origen de datos.
      */
-    private const DSN = "mysql:host=localhost;dbname=projecto";
+    private const DSN = "mysql:host=localhost;dbname=proyecto";
 
     /** 
      * @const OPCIONES[]:string Opciones de conexión específicas del controlador.

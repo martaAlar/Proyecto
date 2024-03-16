@@ -11,9 +11,9 @@ $datos = file_get_contents('php://input');
     /** Inicializa los atributos del objeto. */
     $usuario->setEmail($datos);
     if($usuario->existeEmail()){
-        echo 'true';
+        echo '1';
     }else{
-        echo 'false';
+        echo '0';
     }
 //echo json_encode($datos);
 

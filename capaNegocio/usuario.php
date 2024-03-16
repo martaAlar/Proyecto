@@ -57,6 +57,13 @@ class Usuario {
 	 */
 	private string $fechaNac;
 
+	
+	/**
+	 * @var string Fecha de registro del usuario.
+	 * @access private 
+	 */
+	private string $fechaReg;
+
     /**
 	 * Método que inicializa el atributo userId.
 	 * 
@@ -139,6 +146,17 @@ class Usuario {
         $this->fechaNac = $fechaNac;
     }
 
+    /**
+	 * Método que inicializa el atributo fechaNac.
+	 * 
+	 * @access public
+	 * @param string $fechaNac Fecha de nacimiento del usuario.
+	 * @return void 
+	 */
+    public function setFechaReg(string $fechaReg): void {
+        $this->fechaReg = $fechaReg;
+    }
+
 
 
     /**
@@ -212,6 +230,15 @@ class Usuario {
 	 */
     public function getFechaNac(): string {
         return $this->fechaNac;
+    }
+	/**
+	 * Método que devuelve el valor del atributo fechaReg.
+	 * 
+	 * @access public
+	 * @return string Fecha de registro del usuario.
+	 */
+    public function getFechaReg(): string {
+        return $this->fechaReg;
     }
 
 
@@ -320,15 +347,21 @@ class Usuario {
 	 * @return boolean	True en caso afirmativo
 	 * 					False en caso contrario.
 	 */
-	public function almacenaUsuario() : bool {
+	public function insertarUsuarioDatos() : bool {
 		/** @var BDUsuarios Instancia un objeto de la clase. */
 		$bdusuarios = new BDUsuarios();
 		/** Inicializa los atributos del objeto. */
-		$bdusuarios->setEmail($this->email);
-		$bdusuarios->setContrasena($this->contrasena);
 		$bdusuarios->setNombre($this->nombre);
+		$bdusuarios->setPrApellido($this->prApellido);
+		$bdusuarios->setSegApellido($this->segApellido);
+		$bdusuarios->setEmail($this->email);
+		$bdusuarios->setUsername($this->username);
+		$bdusuarios->setContrasena($this->contrasena);
+		$bdusuarios->setFechaNac($this->fechaNac);
+		$bdusuarios->setFechaReg($this->fechaNac);
+
 		/** Inserta un nuevo usuario y comprueba un posible error. */
-		if ($bdusuarios->insertaUsuario()) {
+		if ($bdusuarios->insertarUsuarioDatos()) {
 			/** Devuelve true si se ha conseguido. */
 			return true;
 		}

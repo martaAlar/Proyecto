@@ -10,6 +10,11 @@ let apellido2 = document.getElementById('sgApellido');
 
 let ultimaBanderaUser = true;
 let ultimaBanderaEmail = true;
+
+let longitudBandera = true;
+let mayusBandera = true; 
+let numeroBandera = true; 
+let simboloBandera = true;
 /**Declarar máximo de formulario a la fecha actual */
 const date = new Date();
 
@@ -24,7 +29,7 @@ let fechaActual = `${año}-${mes}-${dia}`;
 let fechaActualObj = new Date(`${año}-${mes}-${dia}`);
 fecha.setAttribute('max', fechaActual)
 
-
+/**Cambiar primera letra del nombre y apellidos a mayúscula automáticamente */
 
 nombre.addEventListener('input', function() {
     let valor = nombre.value;
@@ -49,6 +54,7 @@ apellido2.addEventListener('input', function() {
     
     apellido2.value = nuevoValor;
 })
+
 /**Comprobación que el username no está registrado en la base de datos */
 user.addEventListener('input', function() {
     let claseErrorUser = document.getElementById('erUser');
@@ -83,7 +89,7 @@ email.addEventListener('input', function() {
         xhr.addEventListener('load', function() {
             ultimaBanderaEmail = this.responseText;
             //console.log(this.responseText); 
-            if(this.responseText == 'true' || valor == ''){
+            if(this.responseText == '1' || valor == ''){
                 ultimaBanderaEmail = true;
                 claseErrorMail.classList.remove('e');
                 claseErrorMail.classList.add('far', 'fa-times-circle');
@@ -93,10 +99,9 @@ email.addEventListener('input', function() {
                 claseErrorMail.classList.add('far', 'fa-check-circle');
                 }
         });
-
+        
         xhr.send(valor); 
     }else{
-        console.log('aqui')
         claseErrorMail.classList.remove('e');
         claseErrorMail.classList.add('far', 'fa-times-circle');
     }
@@ -114,10 +119,10 @@ contraseña.addEventListener('input', function() {
     let claseErrorNumero = document.getElementById('erNum');
     let claseErrorSimbolo = document.getElementById('erSim');
 
-    let longitudBandera = valor.length >= 10 && valor.length <= 30; 
-    let mayusBandera = /[A-Z]/.test(valor); 
-    let numeroBandera = /[0-9]/.test(valor); 
-    let simboloBandera = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(valor);
+    let longitudTest = valor.length >= 10 && valor.length <= 30; 
+    let mayusTest = /[A-Z]/.test(valor); 
+    let numeroTest = /[0-9]/.test(valor); 
+    let simboloTest = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(valor);
 
     /*if(longitudBandera){
         claseErrorLongitud.classList.replace(claseErrorLongitud.classList.value, 'far fa-check-circle');
@@ -145,40 +150,170 @@ contraseña.addEventListener('input', function() {
         claseErrorSimbolo = claseFalso;
     }*/
 
-    if(longitudBandera){
+    if(longitudTest){
+        longitudBandera = false;
         claseErrorLongitud.classList.remove('e');
         claseErrorLongitud.classList.add('far', 'fa-check-circle');
     }else{
+        longitudBandera = true;
         claseErrorLongitud.classList.remove('e');
         claseErrorLongitud.classList.add('far', 'fa-times-circle');
     }
 
-    if(mayusBandera){
+    if(mayusTest){
+        mayusBandera = false;
         claseErrorMayuscula.classList.remove('e');
         claseErrorMayuscula.classList.add('far', 'fa-check-circle');
     }else{
+        mayusBandera = true;
         claseErrorMayuscula.classList.remove('e');
         claseErrorMayuscula.classList.add('far', 'fa-times-circle');
     }
 
-    if(numeroBandera){
+    if(numeroTest){
+        numeroBandera = false;
         claseErrorNumero.classList.remove('e');
         claseErrorNumero.classList.add('far', 'fa-check-circle');
     }else{
+        numeroBandera = true;
         claseErrorNumero.classList.remove('e');
         claseErrorNumero.classList.add('far', 'fa-times-circle');
     }
 
-    if(simboloBandera){
+    if(simboloTest){
+        simboloBandera = false;
         claseErrorSimbolo.classList.remove('e');
         claseErrorSimbolo.classList.add('far', 'fa-check-circle');
     }else{
+        simboloBandera = true;
         claseErrorSimbolo.classList.remove('e');
         claseErrorSimbolo.classList.add('far', 'fa-times-circle');
     }
 })
 
 
+nombre.addEventListener('input', function() {
+    let valor = nombre.value;
+
+    let claseErrorLongitud = document.getElementById('erNombre');
+
+    let longitudTest = valor.length >= 1 && valor.length <= 40; 
+    let mayusTest = /^[A-Z][a-z]*$/.test(valor);
+
+    if(longitudTest){
+        longitudBandera = false;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-check-circle');
+    }else{
+        longitudBandera = true;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-times-circle');
+    }
+
+    if(mayusTest){
+        mayusBandera = false;
+        claseErrorMayuscula.classList.remove('e');
+        claseErrorMayuscula.classList.add('far', 'fa-check-circle');
+    }else{
+        mayusBandera = true;
+        claseErrorMayuscula.classList.remove('e');
+        claseErrorMayuscula.classList.add('far', 'fa-times-circle');
+    }
+
+})
+
+apellido1.addEventListener('input', function() {
+    let valor = apellido1.value;
+
+    let claseErrorLongitud = document.getElementById('erPrAp');
+
+    let longitudTest = valor.length >= 1 && valor.length <= 40; 
+    let mayusTest = /^[A-Z][a-z]*$/.test(valor);
+
+    if(longitudTest){
+        longitudBandera = false;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-check-circle');
+    }else{
+        longitudBandera = true;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-times-circle');
+    }
+
+    if(mayusTest){
+        mayusBandera = false;
+        claseErrorMayuscula.classList.remove('e');
+        claseErrorMayuscula.classList.add('far', 'fa-check-circle');
+    }else{
+        mayusBandera = true;
+        claseErrorMayuscula.classList.remove('e');
+        claseErrorMayuscula.classList.add('far', 'fa-times-circle');
+    }
+
+})
+
+apellido2.addEventListener('input', function() {
+    let valor = apellido2.value;
+
+    let claseErrorLongitud = document.getElementById('erSegAp');
+
+    let longitudTest = valor.length >= 1 && valor.length <= 40; 
+    let mayusTest = /^[A-Z][a-z]*$/.test(valor);
+
+    if(!valor){
+        longitudBandera = false;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-circle');
+    }else{
+        if(longitudTest){
+        longitudBandera = false;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-check-circle');
+        }else{
+            longitudBandera = true;
+            claseErrorLongitud.classList.remove('e');
+            claseErrorLongitud.classList.add('far', 'fa-times-circle');
+        }
+
+        if(mayusTest){
+            mayusBandera = false;
+            claseErrorMayuscula.classList.remove('e');
+            claseErrorMayuscula.classList.add('far', 'fa-check-circle');
+        }else{
+            mayusBandera = true;
+            claseErrorMayuscula.classList.remove('e');
+            claseErrorMayuscula.classList.add('far', 'fa-times-circle');
+        }
+    }
+    
+
+})
+
+fecha.addEventListener('input', function() {
+    let valor = fecha.value;
+
+    let claseErrorLongitud = document.getElementById('erFecha');
+
+    let validezTest = valor < fechaActual; 
+
+    if(!valor){
+        longitudBandera = false;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-times-circle');
+    }else{
+        if(validezTest){
+        longitudBandera = false;
+        claseErrorLongitud.classList.remove('e');
+        claseErrorLongitud.classList.add('far', 'fa-check-circle');
+        }else{
+            longitudBandera = true;
+            claseErrorLongitud.classList.remove('e');
+            claseErrorLongitud.classList.add('far', 'fa-times-circle');
+        }
+    }
+    
+
+})
 
 enviar.addEventListener('click', function(evento) {
     evento.preventDefault();
@@ -199,28 +334,55 @@ enviar.addEventListener('click', function(evento) {
     let userBandera = false;
     let contraseñaBandera = false;
 
-    if(!/^[A-Z][a-z]*$/.test(nombre)){
+    apellido1Value = apellido1.value.trim();
+    apellido2Value = apellido2.value.trim();
+
+    if(!/^[A-Z][a-z]*$/.test(nombre) || nombre.length > 40 || nombre.value == ''){
         nombreBandera = true;
     }
 
-    if(!/^[A-Z][a-z]*$/.test(apellido1)){
+    if(!/^[A-Z][a-z]*$/.test(apellido1Value) || apellido1Value.length > 40 || apellido1Value == '' || apellido1Value.length < 1){
         apellido1Bandera = true;
     }
 
     if(apellido2.value != ''){
-        if(!/^[A-Z][a-z]*$/.test(apellido2)){
+        if(!/^[A-Z][a-z]*$/.test(apellido2Value) || apellido2Value > 40 || apellido2Value > 40){
             apellido2Bandera = true;
         }
+    }else{
+        apellido2Bandera = false;
     }
 
-    if(fecha.value > fechaActual){
+    if(fecha.value > fechaActual || fecha.value == ''){
         fechaBandera = true;
     }
 
-    if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value)){
+    if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value) || email.value == '' || ultimaBanderaEmail == true){
         emailBandera = true;
     }
 
-    console.log('Email: ' + ultimaBanderaEmail);
-    console.log(nombreBandera);
+    if(user.value < 1 || user.value > 60 || user.value == ''){
+        userBandera = true;
+    }
+
+    if(contraseña.value == ''){
+        contraseñaBandera = true;
+    }else{
+        if(longitudBandera || mayusBandera || numeroBandera ||simboloBandera){
+            contraseñaBandera = true;
+        }else{
+            contraseñaBandera = false;
+        }
+    }
+    //console.log('Email: ' + emailBandera);
+    if (!nombreBandera && !apellido1Bandera && !apellido2Bandera && !fechaBandera && !emailBandera && !userBandera && !contraseñaBandera) {
+        
+        const form = document.getElementById('formulario');
+
+        form.submit();
+    } else {
+        console.log('Fallo');
+    }
+      
+
 })

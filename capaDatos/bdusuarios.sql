@@ -1,19 +1,19 @@
 -- Active: 1704499812829@@127.0.0.1@3306@projecto
-DROP DATABASE IF EXISTS projecto;
-CREATE DATABASE IF NOT EXISTS projecto;
+DROP DATABASE IF EXISTS proyecto;
+CREATE DATABASE IF NOT EXISTS proyecto;
 GRANT ALL PRIVILEGES ON *.* TO 'superUser'@'localhost' IDENTIFIED BY '1234' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
 
-GRANT ALL PRIVILEGES ON projecto.* TO 'superUser'@'localhost';
+GRANT ALL PRIVILEGES ON proyecto.* TO 'superUser'@'localhost';
 FLUSH PRIVILEGES;
 
-USE projecto;
+USE proyecto;
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios(  
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255) NOT NULL,
-    contrasena VARCHAR(50) NOT NULL,
+    username VARCHAR(60) NOT NULL,
+    contrasena VARCHAR(30) NOT NULL,
     nombre VARCHAR(40),
     prApellido VARCHAR(40),
     segApellido VARCHAR(40),
