@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var crearCuentaInput = document.getElementById("crearCuenta");
     errorLogin = document.getElementsByClassName("error");
     var boton = document.getElementById("boton");
-    var language = {
+    /*var language = {
         eng: {
             titulo: "Log in",
             nombre: "Username",
@@ -30,16 +30,31 @@ document.addEventListener('DOMContentLoaded', function () {
             crearCuenta: "¿No dispone de una cuenta? Creela en este momento >>",
             boton: "Entrar"
         }
-    };
+    };*/
 
     // Función para cambiar el idioma
     function changeLanguage(lang) {
-        titulo.textContent = language[lang].titulo;
-        nombreInput.placeholder = language[lang].nombre;
-        passwordInput.placeholder = language[lang].password;
-        errorLogin.textContent = language[lang].error;
-        crearCuentaInput.textContent = language[lang].crearCuenta;
-        boton.value = language[lang].boton; 
+
+        fetch('../js/idiomas/idiomas.json')
+        .then(response => response.json())
+        .then(traducciones => {
+            let idioma = window.location.hash;
+            let idiomaSub = idioma.substring(1)
+            let idiomaDatos = traducciones.find(obj => obj.hasOwnProperty(idiomaSub));
+
+            console.log(idiomaDatos[idiomaSub].registroP1.titulo)
+
+            titulo.textContent = idiomaDatos[idiomaSub].inicioSesion.titulo;
+            nombreInput.placeholder = idiomaDatos[idiomaSub].inicioSesion.nombre;
+            passwordInput.placeholder = idiomaDatos[idiomaSub].inicioSesion.password;
+            errorLogin.textContent = idiomaDatos[idiomaSub].inicioSesion.error;
+            crearCuentaInput.textContent = idiomaDatos[idiomaSub].inicioSesion.crearCuenta;
+            boton.value = idiomaDatos[idiomaSub].inicioSesion.boton;
+        })
+        .catch(error => {
+            console.log(error)
+        })
+         
     }
 
     // Cambiar idioma al cargar la página según el hash
@@ -73,22 +88,3 @@ document.addEventListener('DOMContentLoaded', function () {
         changeLanguage("pl");
     });
 });
-
-/*document.querySelector('form').addEventListener('submit', function (event) {
-    event.preventDefault(); 
-
-    // Registra los valores
-    var name = document.getElementById('nombre').value;
-    var password = document.getElementById('password').value;
-    // Comprobación de prueba
-    if (name === 'Marta' && password === '1234') {
-        window.location.href = "html/perfil.html";
-    } else {
-        // Mensaje de error          *cambiar por idiomas
-        alert(errorLogin.textContent);
-        // Elimina los datos de los input
-        document.getElementById('nombre').value = '';
-        document.getElementById('password').value = '';
-    }
-});*/
-

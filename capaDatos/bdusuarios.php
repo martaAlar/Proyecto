@@ -158,7 +158,7 @@ class BDUsuarios extends BDGestion {
 
 
     /**
-	 * Método que devuelve el valor del atributo userId.
+	 * Método que devuelve el valor del atributo $userId.
 	 * 
 	 * @access public
 	 * @return string ID del usuario.
@@ -167,7 +167,7 @@ class BDUsuarios extends BDGestion {
         return $this->userId;
     }
     /**
-	 * Método que devuelve el valor del atributo username.
+	 * Método que devuelve el valor del atributo $username.
 	 * 
 	 * @access public
 	 * @return string Username del usuario.
@@ -185,7 +185,7 @@ class BDUsuarios extends BDGestion {
         return $this->contrasena;
     }
     /**
-	 * Método que devuelve el valor del atributo nombre.
+	 * Método que devuelve el valor del atributo $nombre.
 	 * 
 	 * @access public
 	 * @return string Nombre del usuario.
@@ -194,7 +194,7 @@ class BDUsuarios extends BDGestion {
         return $this->nombre;
     }
     /**
-	 * Método que devuelve el valor del atributo prApellido.
+	 * Método que devuelve el valor del atributo $prApellido.
 	 * 
 	 * @access public
 	 * @return string Primer apellido del usuario.
@@ -203,7 +203,7 @@ class BDUsuarios extends BDGestion {
         return $this->prApellido;
     }
     /**
-	 * Método que devuelve el valor del atributo segApellido.
+	 * Método que devuelve el valor del atributo $segApellido.
 	 * 
 	 * @access public
 	 * @return string Segundo apellido del usuario.
@@ -212,7 +212,7 @@ class BDUsuarios extends BDGestion {
         return $this->segApellido;
     }
     /**
-	 * Método que devuelve el valor del atributo email.
+	 * Método que devuelve el valor del atributo $email.
 	 * 
 	 * @access public
 	 * @return string Email del usuario.
@@ -222,7 +222,7 @@ class BDUsuarios extends BDGestion {
     }
 
     /**
-	 * Método que devuelve el valor del atributo fechaNac.
+	 * Método que devuelve el valor del atributo $fechaNac.
 	 * 
 	 * @access public
 	 * @return string Fecha de nacimiento del usuario.
@@ -232,7 +232,7 @@ class BDUsuarios extends BDGestion {
     }
 
 	/**
-	 * Método que devuelve el valor del atributo fechaReg.
+	 * Método que devuelve el valor del atributo $fechaReg.
 	 * 
 	 * @access public
 	 * @return string Fecha de registro del usuario.
@@ -268,6 +268,37 @@ class BDUsuarios extends BDGestion {
 		}
 		/** No existe el usuario. */
 		return false;
+	}
+
+	/**
+	 * Método que comprueba si existe el usuario en la base de datos.
+	 * 
+	 * @access public
+	 * @return int True si existe el usuario y False en otro caso
+	 */
+	public function conseguirID() : int {
+		/** @var int con los datos de las tareas. */
+		$id = 0;
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+					"SELECT userID
+					 FROM Usuario
+					 WHERE email = :email");
+			/** Vincula un parámetro al nombre de variable especificado. */
+			$resultado->bindParam(':email', $this->email);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que el número de filas sea 1. */
+				if ($resultado->rowCount() === 1) {
+					/** Se asigna el ID del usuario. */
+					$id = $resultado->fetch();
+				}
+			}
+		}
+		/**Devuelve el ID del usuario */
+		return $id;
 	}
 
 	/**

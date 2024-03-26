@@ -273,7 +273,33 @@ class Usuario {
 		return false;
 	}
 
+	/**
+	 * Método que devuelve el ID de un usuario.
+	 *
+	 * @access public
+	 * @return boolean	True en caso afirmativo
+	 * 					False en caso contrario.
+	 */
+	public function conseguirID() : int {
 
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
+
+		/** Inicializa los atributos del objeto. */
+		$bdusuarios->setUsername($this->email);
+
+		/** Comprueba si existe y gestiona un posible error. */
+		if ($bdusuarios->conseguirID()) {
+			/** Inicializa los atributos del objeto con los datos almacenados. */
+			$this->userId = $bdusuarios->getUserId();
+
+			/** Devuelve true si se ha conseguido. */
+			return $bdusuarios->getUserId();
+		}
+
+		/** Devuelve false si se ha producido un error. */
+		return 0;
+	}
     
 	/**
 	 * Método que comprueba si existe el usuario.

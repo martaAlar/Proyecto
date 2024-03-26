@@ -11,16 +11,25 @@
     <link rel="stylesheet" type="text/css" href="../css/login.css"/>
     <link rel="shortcut icon" href="../recursos/iconos/Icono.png">
     <title>Inicio de sesión</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" crossorigin="anonymous">
+    
 </head>
 <body>
     
-    <img src="recursos/iconos/iconoAnimacion.png" class="animacionIcono">
+    <!--<img src="../recursos/iconos/iconoAnimacion.png" class="animacionIcono">-->
 
     <div class="fondo">
-    <button class="botonesIdioma"><a href="#es" data-reload class="vinculos" id="bEspañol"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a></button>
+    <!--
+        <button class="botonesIdioma"><a href="#es" data-reload class="vinculos" id="bEspañol"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a></button>
     <button class="botonesIdioma"><a href="#eng" data-reload class="vinculos" id="bIngles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a></button>
     <button class="botonesIdioma"><a href="#pl" data-reload class="vinculos" id="bPolaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a></button>
-    <!--
+    
     <a href="#es" data-reload class="vinculos" id="Español"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a>
     <a href="#eng" data-reload class="vinculos" id="Ingles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a>
     <a href="#pl" data-reload class="vinculos" id="Polaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a>
@@ -37,7 +46,22 @@
         </form>
         <a href="registroP1.html" class="vinculos" target="_self"><h4 id="crearCuenta" class="textoLink">¿No dispone de una cuenta? Creela en este momento >></h4></a>
     </div>
+
+    <div class="dropdown dropup">
+        <a class="btn btn-secondary dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" id="dropdownMenuLink" aria-expanded="false">
+            <i class="fas fa-language" style="color: rgb(32, 30, 30); font-size: 30px;"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin: 0;">
+            <li class="dropdown-item"><a href="#es" data-reload class="vinculos" id="bEspañol"><img src="../recursos/iconos/banderaEspaña.png" class="banderas"> Español</a></li>
+            <li class="dropdown-item"><a href="#eng" data-reload class="vinculos" id="bIngles"><img src="../recursos/iconos/banderaUK.png" class="banderas"> English</a></li>
+            <li class="dropdown-item"><a href="#pl" data-reload class="vinculos" id="bPolaco"><img src="../recursos/iconos/banderaPolonia.png" class="banderas"> Polski</a></li>
+        </ul>
+    </div>
 </div>
-    <script src="../js/login.js"></script>
+    <script src="../js/idiomas/inicioSesionIdioma.js"></script>
+    <!-- Bootstrap JavaScript (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>    
 </body>
 </html>

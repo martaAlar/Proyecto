@@ -42,7 +42,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['prApellido']) && !empty($_POST['e
     /** Inserta los datos en la base de datos */
     if ($usuario->insertarUsuarioDatos()) {
 
-        $_SESSION['usuario'] = $usuario->getEmail();
+        $_SESSION['usuario'] = $usuario->conseguirID();
             /** Redirige a la siguiente parte del registro. */
             header('Location: ../html/registroP2.html');
             die();
