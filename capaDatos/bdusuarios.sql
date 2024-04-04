@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS configPerfil;
 CREATE TABLE configPerfil(
     user_id INT PRIMARY KEY,
     fotoPerfil VARCHAR(255),
-    colorPerfil VARCHAR(7),
+    colorPerfil VARCHAR(30),
     bannerPerfil VARCHAR(255),
     descripcion TEXT,
     tamañoTexto INT,
