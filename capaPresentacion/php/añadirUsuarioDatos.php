@@ -36,13 +36,13 @@ if (!empty($_POST['nombre']) && !empty($_POST['prApellido']) && !empty($_POST['e
     $usuario->setUsername($_POST['username']);
     $usuario->setContrasena($_POST['contrasena']);
     $fechaActual = date('Y-m-d');
-    echo $fechaActual;
     $usuario->setFechaReg($fechaActual);
 
     /** Inserta los datos en la base de datos */
     if ($usuario->insertarUsuarioDatos()) {
 
-        $_SESSION['usuario'] = $usuario->conseguirID();
+        $_SESSION['id'] = $usuario->conseguirID();
+        echo $_SESSION['id'];
             /** Redirige a la siguiente parte del registro. */
             header('Location: ../html/registroP2.html');
             die();

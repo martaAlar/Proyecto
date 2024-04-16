@@ -18,16 +18,16 @@
     <a href="#pl" data-reload class="vinculos" id="Polaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a>
     -->
     <h4 class="error"></h4>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data" action="../php/fotosColor.php">
     <div class="marcoCentral" id="reg">
         <h3 class="titulos" id="titulo">Edición de perfil</h3>
         <div>
             <div class="columnasDobles" style="float: left;margin-left: 30px;">
                 <button class="añadirFoto">+</button>
-                <input type="file" style="display: none;" id="inputFoto">
+                <input type="file" style="display: none;" id="inputFoto" name="pfp">
                 <br><br><br>
                 <button class="añadirBanner">+</button>
-                <input type="file" style="display: none;" id="inputBanner">
+                <input type="file" style="display: none;" id="inputBanner" name="banner">
             </div>
             
             <div class="columnasDobles" style="float: right;margin-right: 30px;">
@@ -45,52 +45,13 @@
 
         </div>
         <div style="clear: both; text-align: center;">
-            <button class="botones" style="float: left; margin-left: 15px;"><a href="../index.html" class="vinculos"><< Atrás</a></button>
+            <button class="botones" style="float: left; margin-left: 15px;" id="volver"><a href="../html/inicioSesion.html" class="vinculos"><< Atrás</a></button>
             <input type="submit" style="float: right; margin-right: 15px;"  name="Enviar" value="Siguiente >>" class="botones" id="boton"> 
         </div>
     </div>
     </form>
 </div>
-    <script>
-        document.getElementsByClassName('añadirFoto')[0].addEventListener('click', function() {
-            document.getElementById('inputFoto').click();
-        })
-        document.getElementById('inputFoto').addEventListener('change', function() {
-            let foto = this.files.length - 1;
-            if(this.files && this.files[0]){
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    let boton1 = document.getElementsByClassName('añadirFoto')[0];
-                    boton1.style.backgroundImage = `url(${e.target.result})`;
-                    boton1.style.backgroundSize = 'cover';
-                    boton1.style.backgroundRepeat = 'no-repeat';
-                }
-                reader.readAsDataURL(this.files[0]);
-            }
-            
-        })
-
-        document.getElementsByClassName('añadirBanner')[0].addEventListener('click', function() {
-            document.getElementById('inputBanner').click();
-        })
-        document.getElementById('inputBanner').addEventListener('change', function() {
-            let foto = this.files.length - 1;
-            if(this.files && this.files[0]){
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    let boton2 = document.getElementsByClassName('añadirBanner')[0];
-                    boton2.style.backgroundImage = `url(${e.target.result})`;
-                    boton2.style.backgroundSize = 'cover';
-                    boton2.style.backgroundRepeat = 'no-repeat';
-                }
-                reader.readAsDataURL(this.files[0]);
-            }
-            
-        })
-    </script>
-    <script src="../js/registro.js"></script>
+    <script src="../js/registroP2.js"></script>
     <script src="../js/previsualizarColor.js"></script>
 </body>
 </html>

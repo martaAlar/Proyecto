@@ -13,10 +13,10 @@ include_once 'bdgestion.php';
 class BDUsuarios extends BDGestion {
 
     /**
-	 * @var string ID del usuario.
+	 * @var int ID del usuario.
 	 * @access private 
 	 */
-	private string $userId;
+	private int $userId;
     /**
 	 * @var string Nombre de usuario del usuario.
 	 * @access private 
@@ -69,7 +69,7 @@ class BDUsuarios extends BDGestion {
 	 * @param string $userId ID del usuario.
 	 * @return void 
 	 */
-    public function setUserId(string $userId): void {
+    public function setUserId(int $userId): void {
         $this->userId = $userId;
     }
     /**
@@ -161,9 +161,9 @@ class BDUsuarios extends BDGestion {
 	 * Método que devuelve el valor del atributo $userId.
 	 * 
 	 * @access public
-	 * @return string ID del usuario.
+	 * @return int ID del usuario.
 	 */
-    public function getUserId(): string {
+    public function getUserId(): int {
         return $this->userId;
     }
     /**
@@ -253,7 +253,7 @@ class BDUsuarios extends BDGestion {
 			/** @var PDOStatement Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
 					"SELECT *
-					 FROM Usuario
+					 FROM usuarios
 					 WHERE email = :email");
 			/** Vincula un parámetro al nombre de variable especificado. */
 			$resultado->bindParam(':email', $this->email);
@@ -277,29 +277,30 @@ class BDUsuarios extends BDGestion {
 	 * @return int True si existe el usuario y False en otro caso
 	 */
 	public function conseguirID() : int {
-		/** @var int con los datos de las tareas. */
+		/** @var int Inicialización de ID. */
 		$id = 0;
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** @var PDOStatement Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-					"SELECT userID
-					 FROM Usuario
-					 WHERE email = :email");
+				"SELECT userid
+				 FROM usuarios
+				 WHERE username = :username");
 			/** Vincula un parámetro al nombre de variable especificado. */
-			$resultado->bindParam(':email', $this->email);
+			$resultado->bindParam(':username', $this->username);
 			/** Ejecuta la sentencia preparada y comprueba un posible error. */
 			if ($resultado->execute()) {
 				/** Comprueba que el número de filas sea 1. */
 				if ($resultado->rowCount() === 1) {
 					/** Se asigna el ID del usuario. */
-					$id = $resultado->fetch();
+					$this->userId = $resultado->fetchColumn(); 
 				}
 			}
 		}
 		/**Devuelve el ID del usuario */
-		return $id;
+		return $this->userId;
 	}
+	
 
 	/**
 	 * Método que comprueba si existe el nombre de usuario en la base de datos.
@@ -386,7 +387,7 @@ class BDUsuarios extends BDGestion {
 				//var_dump($fila);
 				/** Inicializa los atributos del objeto actual. */
 				$this->username = $fila['username'];
-				$this->contraseña = $fila['contraseña'];
+				$this->contraseña = $fila['contrasena'];
 				/** Existe el usuario. */
 				return true;
 			}
@@ -406,7 +407,7 @@ class BDUsuarios extends BDGestion {
 		if ($this->getPdocon()) {
 			/** Prepara la sentencia SQL. */
 			$resultado = $this->getPdocon()->prepare(
-				"INSERT INTO usuarios (`user_id`, `username`, `contrasena`, `nombre`, `prApellido`, `segApellido`, `email`, `fechaNac`, `fechaRegistro`) 
+				"INSERT INTO usuarios (`userid`, `username`, `contrasena`, `nombre`, `prApellido`, `segApellido`, `email`, `fechaNac`, `fechaRegistro`) 
 				VALUES (NULL, :username, :contrasena, :nombre, :prApellido, :segApellido, :email, :fechaNac, :fechaReg);"
 			);
 			/** Vincula los parámetros al nombre de variable especificado. */
@@ -426,8 +427,7 @@ class BDUsuarios extends BDGestion {
 		}
 		/** Devuelve false si se ha producido un error. */
 		return false;
-	}
-	
+	}	
 
 	/**
 	 * Método que elimina un usuario existente de la base de datos.

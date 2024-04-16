@@ -14,10 +14,10 @@ include_once '../../capaDatos/bdusuarios.php';
 class Usuario {
 
 	/**
-	 * @var string ID del usuario.
+	 * @var int ID del usuario.
 	 * @access private 
 	 */
-	private string $userId;
+	private int $userId;
     /**
 	 * @var string Nombre de usuario del usuario.
 	 * @access private 
@@ -71,7 +71,7 @@ class Usuario {
 	 * @param string $userId ID del usuario.
 	 * @return void 
 	 */
-    public function setUserId(string $userId): void {
+    public function setUserId(int $userId): void {
         $this->userId = $userId;
     }
     /**
@@ -165,7 +165,7 @@ class Usuario {
 	 * @access public
 	 * @return string ID del usuario.
 	 */
-    public function getUserId(): string {
+    public function getUserId(): int {
         return $this->userId;
     }
     /**
@@ -254,7 +254,7 @@ class Usuario {
 
 		/** @var BDUsuarios Instancia un objeto de la clase. */
 		$bdusuarios = new BDUsuarios();
-
+		error_log('Hola');
 		/** Inicializa los atributos del objeto. */
 		$bdusuarios->setUsername($this->username);
 		$bdusuarios->setContrasena($this->contrasena);
@@ -286,7 +286,35 @@ class Usuario {
 		$bdusuarios = new BDUsuarios();
 
 		/** Inicializa los atributos del objeto. */
-		$bdusuarios->setUsername($this->email);
+		$bdusuarios->setUsername($this->username);
+		
+		/** Comprueba si existe y gestiona un posible error. */
+		if ($bdusuarios->conseguirID()) {
+			/** Inicializa los atributos del objeto con los datos almacenados. */
+			$this->userId = $bdusuarios->getUserId();
+
+			/** Devuelve true si se ha conseguido. */
+			return $bdusuarios->getUserId();
+		}
+
+		/** Devuelve false si se ha producido un error. */
+		return 0;
+	}
+
+	/**
+	 * Método que devuelve el email de un usuario.
+	 *
+	 * @access public
+	 * @return boolean	True en caso afirmativo
+	 * 					False en caso contrario.
+	 */
+	public function conseguirEmail() : int {
+
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuarios = new BDUsuarios();
+
+		/** Inicializa los atributos del objeto. */
+		$bdusuarios->setUsername($this->username);
 
 		/** Comprueba si existe y gestiona un posible error. */
 		if ($bdusuarios->conseguirID()) {
