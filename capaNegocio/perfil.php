@@ -183,7 +183,7 @@ class Perfil extends Usuario{
 	 */
 	public function validaUsuario() : bool {
 
-		/** @var BDUsuarios Instancia un objeto de la clase. */
+		/** @var BDperfil Instancia un objeto de la clase. */
 		$bdperfil = new BDperfil();
 		/** Inicializa los atributos del objeto. */
 		$bdperfil->setUserId($this->userid);
@@ -208,8 +208,7 @@ class Perfil extends Usuario{
 	 * @return boolean True si tiene éxito y False en otro caso
 	 */
 	public function insertarFotosColor() : bool {
-
-		/** @var BDUsuarios Instancia un objeto de la clase. */
+		/** @var BDperfil Instancia un objeto de la clase perfil. */
 		$bdperfil = new BDperfil();
 		/** Inicializa los atributos del objeto. */
 		$bdperfil->setUserId($this->userid);
@@ -219,6 +218,29 @@ class Perfil extends Usuario{
 
 		/** Comprueba si existe y gestiona un posible error. */
 		if ($bdperfil->insertarFotosColor()) {
+			/** Devuelve true si se ha conseguido. */
+			return true;
+		}
+
+		/** Devuelve false si se ha producido un error. */
+		return false;
+	}
+
+	/**
+	 * Método que inserta los datos de color e imagenes del usuario en la base de datos
+	 * 
+	 * @access public
+	 * @return boolean True si tiene éxito y False en otro caso
+	 */
+	public function insertarDescripcion() : bool {
+		/** @var BDperfil Instancia un objeto de la clase perfil. */
+		$bdperfil = new BDperfil();
+		/** Inicializa los atributos del objeto. */
+		$bdperfil->setUserId($this->userid);
+		$bdperfil->setDescripcion($this->descripcion);
+
+		/** Comprueba si existe y gestiona un posible error. */
+		if ($bdperfil->insertarDescripcion()) {
 			/** Devuelve true si se ha conseguido. */
 			return true;
 		}

@@ -6,13 +6,20 @@
     <link rel="stylesheet" type="text/css" href="../css/registroP3.css"/>
     <link rel="shortcut icon" href="../recursos/iconos/Icono.png">
     <title>Registro</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" crossorigin="anonymous">
+
 </head>
 <body>
     <div class="fondo">
     <button class="botonesIdioma"><a href="#es" data-reload class="vinculos" id="bEspañol"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a></button>
     <button class="botonesIdioma"><a href="#eng" data-reload class="vinculos" id="bIngles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a></button>
-    <button class="botonesIdioma"><a href="#pl" data-reload class="vinculos" id="bPolaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a></button>
-    <!--
+    <!--<button class="botonesIdioma"><a href="#pl" data-reload class="vinculos" id="bPolaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a></button>
+    
     <a href="#es" data-reload class="vinculos" id="Español"><img src="../recursos/iconos/banderaEspaña.png"  class="banderas"> Español</a>
     <a href="#eng" data-reload class="vinculos" id="Ingles"><img src="../recursos/iconos/banderaUK.png"  class="banderas"> English</a>
     <a href="#pl" data-reload class="vinculos" id="Polaco"><img src="../recursos/iconos/banderaPolonia.png"  class="banderas"> Polski</a>
@@ -20,80 +27,31 @@
     <h4 class="error"></h4>
     <div class="marcoCentral" id="reg">
         <form>
-            <h3 class="titulos" id="titulo">Descipción</h3>
+            <h3 class="titulos" id="titulo">Descripción</h3>
             <div>
 
-                <div contenteditable="true" id="editableDiv">Inserte el texto aquí...</div>
-                    
-                    <button onclick="negrita()" style="font-weight:bold;" class="botones">N</button>
-                    <button onclick="copiar()" style="font-weight:bold;" class="botones">copiar</button>
-                    <button onclick="cursiva()" style="font-weight:bold;" class="botones"><i>K</i></button>
-                    <button onclick="mostrarVariable()">Mostrar contenido variable</button>
-            <script>
-                let contenidoEditDiv = "";
-                function mostrarVariable(){
-                    contenidoEditDiv = document.getElementById("editableDiv").innerHTML;
-                    console.log(contenidoEditDiv);
-                }
-
-                /*function negrita() {
-                    var selectedText = window.getSelection().toString();
-                    if (selectedText.length > 0) {
-                        document.execCommand('bold', false, null);
-                    }
-                }*/
-                function negrita() {
-                    let etiqueta = 'b';
-                    añadirEtiqueta(etiqueta);
-                }
-
-                function copiar() {
-                    let selectedText = window.getSelection().toString();
-                    if (selectedText.length > 0) {
-                        document.execCommand('copy', false, null);
-                    }
-                }
-
-                function cursiva() {
-                    let etiqueta = 'i';
-                    añadirEtiqueta(etiqueta);
-                }
-                function añadirEtiqueta(nombreEtiqueta) {
-                    let seleccion = window.getSelection();
-                    let textoSeleccionado = window.getSelection().toString();
-                    if (textoSeleccionado.length > 0) {
-                        let rango = seleccion.getRangeAt(0);
-                        let nuevaEtiqueta = document.createElement(nombreEtiqueta);
-                        rango.deleteContents();
-                        rango.insertNode(nuevaEtiqueta);
-                        nuevaEtiqueta.appendChild(document.createTextNode(textoSeleccionado));
-                    }
-                }
-
-                //const editableDiv = document.getElementById("editableDiv");
-
-                /*editableDiv.addEventListener("input", function () {
-                if (editableDiv.textContent === "" && !Focus) {
-                    editableDiv.textContent = "Enter your text here...";
-                } else {
-                    editableDiv.textContent("");
-                }
-                });
-                editableDiv.addEventListener("focus", function () {
-                    if (editableDiv.textContent.trim() === "Enter your text here...") {
-                        editableDiv.textContent = "hola";
-                    }
-                });*/
-            </script>    
-
-            </div>
+                <div contenteditable="true" id="editableDiv"></div>
+                <p style="margin-bottom: 1%;"><span id="n">0</span>/200</p>    
+                <button type="button" onclick="negrita()" style="font-weight:bold;" class="botones">N</button>
+                <button type="button" onclick="cursiva()" style="font-weight:bold;" class="botones"><i>K</i></button>
+                <button type="button" onclick="copiar()" style="font-weight:bold;" class="botones"><i class="far fa-copy"></i></button>
+                <button type="button" onclick="pegar()" class="botones"><i class="far fa-clipboard"></i></button>
+                <button type="button" onclick="borrar()" class="botones"><i class="far fa-trash-alt"></i></button>
+                <button type="button" onclick="borrarFormato()" class="botones"><i class="fas fa-eraser"></i></button>
+                <abbr title="Hola" onclick="cargarAyuda()"><i class="far fa-question-circle"></i></abbr>
+                <br><br>
+            </div style='margin-bottom: -2%'>
             <div style="clear: both; text-align: center;">
-                <button class="botones" style="float: left; margin-left: 15px;"><a href="registroP1.html" class="vinculos"><< Atrás</a></button>
-                <button style="float: right; margin-right: 15px;" class="botones"><a href="registroP3.html" class="vinculos">Siguiente >></a></button>
+                <button class="botones" id="volver" style="float: left; margin-left: 15px;"><< Atrás</button>
+                <button style="float: right; margin-right: 15px;" class="botones" id="enviar">Siguiente >></button>
             </div>
         </form>
     </div>
 </div>
-    <script src="../js/registro.js"></script>
+<!-- Bootstrap JavaScript (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <script src="../js/registroP3.js"></script>
 </body>
 </html>

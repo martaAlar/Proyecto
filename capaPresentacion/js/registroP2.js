@@ -75,16 +75,16 @@ let siguiente = document.getElementById('boton').addEventListener('click', funct
     formData.append('color', colorValor); 
 
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', '../php/fotosColor.php');
+    xhr.open('POST', '../php/almacenarFotosColor.php');
     //No se usa cuando FormData
     //xhr.setRequestHeader('Content-Type', 'multipart/form-data');
     xhr.addEventListener('load', function() {
-        console.log(this.responseText); 
-        /*if(this.responseText == 'true'){
-            console.log('Es true')
+        //console.log(this.responseText); 
+        if(this.responseText == true){
+            window.open('../html/registroP3.html', '_self');
         }else{
-            console.log('Es false')
-            }*/
+            alert('Ha habido un problema con el inserción de datos');
+            }
     });
     
     xhr.send(formData); 

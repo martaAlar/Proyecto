@@ -83,8 +83,8 @@ if($perfil->insertarFotosColor()){
     /*header('Location: ../html/registroP3.html');
     echo 'Se han insertado los datos del usuario';
 	die();*/
-    return true;
+    echo true;
 }else{
     //echo 'Ha fallado';
-    return false;
+    echo false;
 }

@@ -124,32 +124,6 @@ contraseña.addEventListener('input', function() {
     let numeroTest = /[0-9]/.test(valor); 
     let simboloTest = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(valor);
 
-    /*if(longitudBandera){
-        claseErrorLongitud.classList.replace(claseErrorLongitud.classList.value, 'far fa-check-circle');
-        claseErrorLongitud.classList.remove('e');
-        claseErrorLongitud.classList.add('far', 'fa-check-circle');
-    }else{
-        claseErrorLongitud = claseFalso;
-    }
-
-    if(mayusBandera){
-        claseErrorMayuscula = claseCorrecto;
-    }else{
-        claseErrorMayuscula = claseFalso;
-    }
-
-    if(numeroBandera){
-        claseErrorNumero = claseCorrecto;
-    }else{
-        claseErrorNumero = claseFalso;
-    }
-
-    if(simboloBandera){
-        claseErrorSimbolo = claseCorrecto;
-    }else{
-        claseErrorSimbolo = claseFalso;
-    }*/
-
     if(longitudTest){
         longitudBandera = false;
         claseErrorLongitud.classList.remove('e');

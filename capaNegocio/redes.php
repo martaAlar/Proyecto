@@ -8,7 +8,7 @@
 echo 'redes.php antes del include<br>';
 include_once 'capaDatos/bdredes.php';
 echo 'Incluye la clase bdredes<br>';
-include_once 'Usuario.php';
+include_once 'usuario.php';
 echo 'redes.php despues del include<br>';
 
 /**
@@ -114,6 +114,7 @@ class Redes extends BDGestion{
             $this->nombreRed = $i['nombreRed'];
             $this->linkRed = $i['linkRed'];
             $arrayRedes[] = clone $this;
+			
         }
 
         return $arrayRedes;

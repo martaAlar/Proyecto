@@ -202,5 +202,33 @@ class BDperfil extends BDUsuarios {
 		/** Devuelve false si se ha producido un error. */
 		return false;
 	}
+
+	/**
+	 * Método que inserta los datos de descripcion del usuario en la base de datos
+	 * 
+	 * @access public
+	 * @return boolean True si tiene éxito y False en otro caso
+	 */
+	public function insertarDescripcion() : bool {
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+				"UPDATE perfil 
+				SET descripcion = :descripcion
+				WHERE `userid` = :userid;"
+			);
+			/** Vincula los parámetros al nombre de variable especificado. */
+			$resultado->bindParam(':userid', $this->userid);
+			$resultado->bindParam(':descripcion', $this->descripcion);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Devuelve true si se ha conseguido. */
+				return true;
+			}
+		}
+		/** Devuelve false si se ha producido un error. */
+		return false;
+	}
     
 }

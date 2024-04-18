@@ -10,10 +10,9 @@
     padding-left: 15px;
     padding-right: 15px;
     font-family:'Helvetica';
-    
 }*/
 .marcoCentral {
-    height: 340px;
+    height: fit-content !important;
 }
 .botonesElección + label{
     border: solid 1px rgba(50, 50, 50, 0.053);
