@@ -7,13 +7,21 @@
     <link rel="shortcut icon" href="Icono.png">
     <script src="../js/perfil.js"></script>
     <title>Inicio</title>
+
+     <!--Bootstrap CSS 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" crossorigin="anonymous">
+    
 </head>
 <body>
     <nav class="barraNavegacion">
         <img src="../recursos/iconos/Icono.png" class="iconoPequeño">
-        <img src="../recursos/iconos/suplemento_de_logo.png" class="iconoGrande" style="width: 200px; margin-left: 15px;">
+        <img src="../recursos/iconos/logoGrande.png" class="iconoGrande" style="width: auto; margin-left: 15px; height: 90px; margin-top: 9px; margin-bottom: 9px;">
         <div style="display: inline-flex;">
-            <input type="search" placeholder="Buscar " class="barraBusqueda"><button id="buscar"><img src="../../recursos/iconos/lupa.png" id="lupa"></button>
+            <input type="search" placeholder="Buscar @..." class="barraBusqueda"><button id="buscar"><i class="fas fa-search"></i></button>
         </div>
         <div id="contenedorIframe"></div>
         <h1 class="tituloNavegación"  style="margin-bottom: 0px;" >Interacción</h1>
@@ -32,17 +40,22 @@
         <button class="botonNavPerfil"><img>Seguidos</button><p id="informacion">40</p>
         <br>
         <hr>
-        <button class="botonNavPerfil" onclick="cargarContenido()" style="position: absolute; bottom: 0px;">Configuración</button>
-        
+        <button class="botonNavPerfil" onclick="cargarContenido()" style="position: absolute; bottom: 9px;">Configuración</button>
     </nav>
         <section id="contenidoPrincipal">
         <header>
-            <img src="../recursos/imagenesPrototipo/banner.jpg" id="banner">
-            <img src="../recursos/imagenesPrototipo/pfp.jpg" id="pfp">
+            <img src="../recursos/iconos/bannerDefault.png" id="banner">
+            <img src="../recursos/iconos/pfpDefault.png" id="pfp">
+            <p class="nombreApellidos" id="nombreApellidos">Nombre y tal</p>
+            <br>
+            <p class="username" id="username">@username</p>
             <div id="descripcion">
-                Miau miau miau miau, miau miau miau, miau miau miau miau miau
-                miau. Miau miau miau miau miau miau, miau, miau miau miau miau miau.
-                Miau  miau miau miau miau miau miau miau miau miau, miau miau miau miau miau.
+                Amante de la naturaleza y la aventura. 
+                Comparto fotos de mis viajes y reflexiones inspiradoras. 
+                Siempre buscando nuevas experiencias
+            </div>
+            <div id="redesSociales">
+                Redes sociales
             </div>
             <div class="tagsDivPerfil">
                 <div class="tagsPerfil">Saltar</div>
@@ -52,14 +65,11 @@
                 <div class="tagsPerfil">Dormir</div>
                 <div class="tagsPerfil">Maullar</div>
             </div>
-            <div id="redesSociales">
-                rfrfedzzedrfedrfedzredrf
-            </div>
         </header>
 
         <aside class="matching">
             
-            <h1 class="tituloNavegación">Matching</h1>
+            <h1 class="tituloNavegación" style="padding-top: 1%;">Matching</h1>
             <button class="botonPerfilMatching">
                 <div class="perfilesMatching">
 
@@ -125,46 +135,7 @@
                         miau miau miau miau miau miau, miau miau miau miau miau.
                     </p>
                 </div>
-                <button class="meGustaBoton"><3</button>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion2.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-                <button class="meGustaBoton"><3</button>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion3.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-                <button class="meGustaBoton"><3</button>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion4.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-                <button class="meGustaBoton"><3</button>
+                <button class="meGustaBoton"><i class="far fa-heart" style="color: #676e79;"></i></button>
             </div>
 
             <div class="publicacionPrueba">
@@ -177,9 +148,54 @@
                         miau miau miau miau miau miau, miau miau miau miau miau.
                     </p>
                 </div>
-                <button class="meGustaBoton"><3</button>
+                <button class="meGustaBoton"><i class="fas fa-heart" style="color: #676e79;"></i></button>
             </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><i class="fas fa-heart" style="color: #676e79;"></i></button>
+            </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><i class="fas fa-heart" style="color: #676e79;"></i></button>
+            </div>
+
+            <div class="publicacionPrueba">
+                <div class="fila1">
+                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
+                    <p class="textoPublicacion">
+                        Miau miau miau miau, miau miau miau, miau miau 
+                        miau miau miau miau. Miau miau miau miau miau miau, 
+                        miau, miau miau miau miau miau. Miau miau miau miau 
+                        miau miau miau miau miau miau, miau miau miau miau miau.
+                    </p>
+                </div>
+                <button class="meGustaBoton"><i class="fas fa-heart" style="color: #676e79;"></i></button>
+            </div>
+            
         </article>
     </section>
+    <!-- Bootstrap JavaScript (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>   
+    <script src="../js/perfil.js"></script>    
 </body>
 </html>

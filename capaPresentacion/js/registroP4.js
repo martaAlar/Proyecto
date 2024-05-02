@@ -85,7 +85,7 @@ document.getElementById('enviar').addEventListener('click', function(e) {
         xhr.addEventListener('load', function(){
             console.log(this.responseText);
             if(this.response == true){
-                window.location.href = '../html/confirmacionRegistro.html';
+                window.location.href = '../html/perfil.html';
             }else{
                 console.log('No');
             }

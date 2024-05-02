@@ -350,10 +350,14 @@ enviar.addEventListener('click', function(evento) {
     }
     //console.log('Email: ' + emailBandera);
     if (!nombreBandera && !apellido1Bandera && !apellido2Bandera && !fechaBandera && !emailBandera && !userBandera && !contraseñaBandera) {
-        
-        const form = document.getElementById('formulario');
+        try {
+            const form = document.getElementById('formulario');
 
-        form.submit();
+            form.submit();
+        } catch (error) {
+            console.log(error);
+        }
+        
     } else {
         console.log('Fallo');
     }

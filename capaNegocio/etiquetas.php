@@ -191,4 +191,28 @@ class Etiquetas {
 		/** Devuelve false si se ha producido un error. */
 		return false;
 	}
+
+	/**
+	 * Método que carga los datos de las etiquetas del usuario de la base de datos
+	 * 
+	 * @access public
+	 * @return array[]:Etiquetas Array de objetos de tipo Etiqueta.
+	 */
+	public function cargarEtiquetasPerfil() : array {
+		/** @var array[]:Etiquetas Array de objetos de tipo Etiqueta. */
+		$arrayEtiquetas = array();
+		/** @var BDEtiquetas Instancia un objeto de la clase. */
+		$bdetiquetas = new BDEtiquetas();
+		/** Inicializa los atributos del objeto. */
+		$bdetiquetas->setUserId($this->userid);
+		/** Inicializa el array de objetos Tarea. */
+		foreach($bdetiquetas->cargarEtiquetasPerfil() as $etiqueta) {
+			$this->setEtiquetaId($etiqueta[0]);
+			$this->setNombreEtiquetaES($etiqueta[1]);
+			$this->setNombreEtiquetaEN($etiqueta[2]);
+			$arrayEtiquetas[] = $etiqueta;
+		}
+		/** Devuelve el array. */
+		return $arrayEtiquetas;
+	}
 }

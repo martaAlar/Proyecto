@@ -17,7 +17,7 @@ class Usuario {
 	 * @var int ID del usuario.
 	 * @access private 
 	 */
-	private int $userId;
+	private int $userid;
     /**
 	 * @var string Nombre de usuario del usuario.
 	 * @access private 
@@ -71,8 +71,8 @@ class Usuario {
 	 * @param string $userId ID del usuario.
 	 * @return void 
 	 */
-    public function setUserId(int $userId): void {
-        $this->userId = $userId;
+    public function setUserId(int $userid): void {
+        $this->userid = $userid;
     }
     /**
 	 * Método que inicializa el atributo username.
@@ -166,7 +166,7 @@ class Usuario {
 	 * @return string ID del usuario.
 	 */
     public function getUserId(): int {
-        return $this->userId;
+        return $this->userid;
     }
     /**
 	 * Método que devuelve el valor del atributo username.
@@ -291,7 +291,7 @@ class Usuario {
 		/** Comprueba si existe y gestiona un posible error. */
 		if ($bdusuarios->conseguirID()) {
 			/** Inicializa los atributos del objeto con los datos almacenados. */
-			$this->userId = $bdusuarios->getUserId();
+			$this->userid = $bdusuarios->getUserId();
 
 			/** Devuelve true si se ha conseguido. */
 			return $bdusuarios->getUserId();
@@ -319,7 +319,7 @@ class Usuario {
 		/** Comprueba si existe y gestiona un posible error. */
 		if ($bdusuarios->conseguirID()) {
 			/** Inicializa los atributos del objeto con los datos almacenados. */
-			$this->userId = $bdusuarios->getUserId();
+			$this->userid = $bdusuarios->getUserId();
 
 			/** Devuelve true si se ha conseguido. */
 			return $bdusuarios->getUserId();
@@ -424,12 +424,27 @@ class Usuario {
 	}
 
 	/**
-	 * Método para mostrar datos del usuario en el perfil
+	 * Método que carga los datos del usuario de la base de datos
 	 * 
 	 * @access public
-	 * @return array[]:string
+	 * @return array[]:Usuario Array de objetos de tipo Usuario.
 	 */
-	/*public function datosPerfil() : array {
-		
-	}*/
+	public function cargarInformacionPerfil() : array {
+		/** @var array[]:Usuario Array de objetos de tipo Perfil. */
+		$arrayUsuario = array();
+		/** @var BDUsuarios Instancia un objeto de la clase. */
+		$bdusuario = new BDUsuarios();
+		/** Inicializa los atributos del objeto. */
+		$bdusuario->setUserId($this->userid);
+		/** Inicializa el array de objetos Tarea. */
+		foreach($bdusuario->cargarPerfil() as $usuario) {
+			$this->setUsername($usuario[0]);
+			$this->setNombre($usuario[1]);
+			$this->setPrApellido($usuario[2]);
+			$this->setSegApellido($usuario[3]);
+			$arrayUsuario[] = $usuario;
+		}
+		/** Devuelve el array. */
+		return $arrayUsuario;
+	}
 }

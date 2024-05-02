@@ -73,18 +73,27 @@ function mostrarVariable(){
 
 contenedor.addEventListener('input', function() {
     contador.innerText = contenedor.innerText.length;
-    if(contenedor.innerText.length >= 201){
+    if(contenedor.innerText.length >= 251){
         contador.style.color = '#ff0000';
     }else{
         contador.style.color = '#000000';
     }
+
+    let max = 250;
+    nCharac = contenedor.innerText.length;
+    rest = max - nCharac;
+
+    if(rest < 0){
+        contenedor.innerText = contenedor.innerText.substring(0, max-1);
+    }
+
     
 })
 
 document.getElementById('enviar').addEventListener('click', function(e) {
     e.preventDefault();
 
-    if(contenedor.innerText.length < 201){
+    if(contenedor.innerText.length < 251){
         let xhr = new XMLHttpRequest();
         xhr.open('POST', '../php/almacenarDescripcion.php');
         xhr.setRequestHeader('Content-Type', 'text/plain');

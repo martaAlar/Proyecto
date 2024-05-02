@@ -36,7 +36,7 @@ abstract class BDGestion {
     public function __construct() {
         try {
             /** Establece la conexión con el servidor de bases de datos. */
-            $this->pdocon = new PDO(self::DSN, 'superUser', '1234', self::OPCIONES);
+            $this->pdocon = new PDO(self::DSN, 'superUser', '1234', self::OPCIONES); /**Mm2004%a */
             $this->pdocon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();

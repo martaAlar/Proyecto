@@ -2,24 +2,74 @@
 body {
     width: 98%;
     height: 100%;
+    background: linear-gradient(
+        50deg,
+        #f0ebebb2,
+        #a38080bb
+        );
+        /*min-height: 848px;
+        min-width: 600px;*/
 }
+
+@media (max-height: 848px) {
+    body {
+        min-height: none;
+    }
+
+    .barraNavegacion {
+        height: 818px !important;
+    }
+
+    .publicaciones {
+        height: 404px !important;
+    }
+
+    .matching {
+        height: 385px !important;
+        margin-bottom: 5px !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: 15px;
+        
+    }
+    
+    body::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        background-color: rgba(128, 128, 128, 0.739);
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    body {
+        min-width: none;
+    }
+
+}
+
 #contenidoPrincipal{
     position: absolute;
     top: 10px;
+    /*background-color: red;*/
 }
 #contenedorIframe{
     position: absolute;
     z-index: 200;
     margin-left: 10%;
     margin-right: 10%;
-    width: 80%;
+    width: 90%;
 }
 
 hr {
     background-color: rgba(128, 84, 84, 0.173);
     box-shadow: 0 0 2px 0 #746e6e5e;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
     .barraNavegacion{
         width: 240px !important;
         padding-right: 1%;
@@ -29,16 +79,18 @@ hr {
         display: none;
     }
     #contenidoPrincipal{
+        position: absolute;
+        left: 270px;
         margin-top: 0px;
         /*margin-left: 290px;*/
-        margin-left: 25%;
+        margin-left: 4%;
         width: 72%;
         height: 98%;
         margin-right: 3%;
         
     }
 }
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     .barraNavegacion *{
         display: none;
     }
@@ -46,17 +98,17 @@ hr {
         display: block;
         position: absolute;
         width: 90%;
-        margin-left: -4%;
+        margin-top: 5px;
     }
     .barraNavegacion{
         width: 7% !important;
-
 }
     #contenidoPrincipal{
         height: 95%;
         margin-left: 9%;
-        margin-right: 0.7%;
+        margin-right: 1%;
         width: 90%;
+        /*background-color: blue;*/
     }
 }
 .tituloNavegación{
@@ -67,14 +119,17 @@ hr {
 
 .barraNavegacion {
     position: absolute;
-    height: 97%;
-    border-left: 2px solid transparent; 
+    height: 97.5%;
+    /*border-left: 2px solid transparent; 
       border-right: 2px solid #9e8d8581; 
       border-top: 2px solid transparent; 
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid transparent;*/
     width: 22%;
     z-index: 1;
-    padding-left: 5px;
+    padding-left: 10px;
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e5e;
+    border-radius: 15px;
 }
 
 .botonNavPerfil {
@@ -101,13 +156,14 @@ hr {
     padding: 5px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    width: 210px;
 }
 
 #lupa {
     background-size: contain;
     background-repeat: no-repeat;
     border: transparent;
-    width: 20px;
+    width: 30px;
     height: 20px;
     border-radius: 10px;
     padding-top: 2px;
@@ -134,34 +190,73 @@ hr {
 }
 
 #banner{
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
-    height: 280px;
+    height: 330px;
+    mask-image: radial-gradient(circle at center, black 0%, transparent 98%);
+    
 }
 
 #pfp {
     position: relative;
     z-index: 200;
-    margin-top: -90px;
+    margin-top: -120px;
+    margin-bottom: 10px;
     margin-left: 5%;
-    width: 130px;
+    width: 150px;
+    height: 150px;
     border-radius: 90px;
     border: 7px solid white
 
 }
+
+.nombreApellidos {
+    z-index: 20;
+    position: absolute;
+    margin-top: -155px;
+    margin-left: 22.4%;
+    font-size: 28px;
+    background-color: #f9f9f986;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.username {
+    z-index: 20;
+    background-color: red;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 22.4%;
+    font-size: 18px;
+    background-color: #f9f9f986;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
+    padding: 5px;
+}
 #descripcion {
     position: absolute;
     width: 47%;
-    margin-left: 23%;
-    margin-top: -4%;
+    margin-left: 22.6%;
+    margin-top: -40px;
     font-size: 16px;
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
+    height: 75px;
+    padding: 5px;
 }
 .tagsDivPerfil {
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
     position: absolute;
-    width: 20%;
-    height: 24px;
+    width: 26.5%;
+    height: 75px;
+    right: 0;
+    margin-top: -40px;
+    padding: 5px;
 }
-
 .tagsPerfil {
     font-size: 15px;
     display: inline-block;
@@ -171,22 +266,29 @@ hr {
     background-color: rgba(255, 0, 0, 0.397);
 }
 #redesSociales {
-    background-color: green;
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
     position: absolute;
-    width: 200px;
-    right: 0;
-    margin-right: 2%;
-    margin-top: -4%;
+    margin-top: 2px;
+    width: 19%;
+    height: 35px;
+    padding: 5px;
+    margin-left: 8px;
 }
 /* MATCHING */
 .matching {
     position: absolute;
     right: 0;
-    margin-right: 2%;
-    margin-top: 10%;
-    width: 25%;
-    background-color: red;
-
+    margin-top: 70px;
+    padding-bottom: 2%;
+    width: 27%;
+    /*height: 56.5%;*/
+    margin-bottom: 10px;
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
+    text-align: center;
     border-right: 2px solid transparent; 
       border-left: 2px solid #9e8d8581; 
       border-top: 2px solid transparent; 
@@ -194,7 +296,7 @@ hr {
 }
 
 .matching h1 {
-    margin-left: 20px;
+    margin-top: 8px;
 }
 .botonPerfilMatching {
     background-color: transparent;
@@ -213,7 +315,7 @@ hr {
     height: 100%;
     padding-left: 8px;
     padding-bottom: 5px;
-    margin: -1px -6px;
+    margin: 0px -6px;
 }
 
 .fila1 {
@@ -247,19 +349,31 @@ hr {
 }
 
 .publicaciones {
-    background-color: yellow;
-    width: 72%;
-    height: 50%;
-    margin-top: 10%;
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
+    width: 70%;
+    height: 52%;
+    margin-top: 70px;
+    margin-left: 8px;
     overflow:scroll;
+    overflow-x: hidden;
 }
 
 .publicaciones::-webkit-scrollbar {
     width: 5px;
+    
+}
+
+.publicaciones::-webkit-scrollbar-track {
+    background-color: transparent; 
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .publicaciones::-webkit-scrollbar-thumb {
     background-color: rgba(128, 128, 128, 0.739);
+    border-radius: 10px;
 }
 
 /* PUBLICACIONES*/
@@ -283,10 +397,12 @@ hr {
 }
 
 .meGustaBoton {
-    font-size: 20px;
-    width: 40px;
-    height: 20px;
+    font-size: 25px;
+    width: 50px;
+    height: auto;
     padding-bottom: 20px;
     margin: 5px;
+    background-color: transparent;
+    border-color: transparent;
 }
 

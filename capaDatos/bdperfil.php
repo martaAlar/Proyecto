@@ -230,5 +230,42 @@ class BDperfil extends BDUsuarios {
 		/** Devuelve false si se ha producido un error. */
 		return false;
 	}
+
+	/**
+	 * Método que carga la información del perfil del usuario de la base de datos.
+	 *
+	 * @access public
+	 * @return array[]:array[]:string Array de perfil.
+	 */
+	public function cargarPerfil(): array {
+		/** @var array[]:array[]:string con los datos del perfil. */
+		$arrayPerfil = array();
+		//var_dump($this->email);
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+				"SELECT fotoPerfil, colorPerfil, bannerPerfil, descripcion
+				FROM perfil
+				WHERE userid = :userid");
+			/** Vincula los parámetros al nombre de variable especificado. */
+			$resultado->bindParam(':userid', $this->userid);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que existan datos. */
+				if ($resultado->rowcount() == 1) {
+					/** @var array[]:string Almacena los datos de la consulta. */
+					$arrayPerfil = $resultado->fetch();
+					/** Asigna los datos a las propiedades del objeto actual. */
+					/*$this->fotoPerfil = $fila['fotoPerfil'];
+					$this->colorPerfil = $fila['colorPerfil'];
+					$this->bannerPerfil = $fila['bannerPerfil'];
+					$this->descripcion = $fila['descripcion'];*/
+				}
+			}
+		}
+		/** Devuelve el array con los datos del perfil. */
+		return $arrayPerfil;
+	}
     
 }

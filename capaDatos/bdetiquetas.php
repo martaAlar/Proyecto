@@ -201,4 +201,37 @@ class BDEtiquetas extends BDGestion{
 		/** Devuelve false si se ha producido un error. */
 		return false;
 	}
+
+	/**
+	 * Método que lee las etiquetas del usuario de la base de datos.
+	 *
+	 * @access public
+	 * @return array[]:array[]:string Array de etiquetas.
+	 */
+	public function cargarEtiquetasPerfil(): array {
+		/** @var array[]:array[]:string con los datos de las etiquetas. */
+		$arrayEtiquetas = array();
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+				"SELECT etiquetas.etiquetaid, etiquetas.nombreEtiquetaES, etiquetas.nombreEtiquetaEN
+				FROM etiquetasUsuario
+				JOIN etiquetas ON etiquetasUsuario.etiquetaid = etiquetas.etiquetaid
+				WHERE etiquetasUsuario.userid = :userid;"
+			);
+			/** Vincula los parámetros al nombre de variable especificado. */
+			$resultado->bindParam(':userid', $this->userid);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que existen etiquetas. */
+				if ($resultado->rowCount() > 0) {
+					/** Rellenar al array con los datos de las etiquetas. */
+					$arrayEtiquetas = $resultado->fetchAll();
+				}
+			}
+		}
+		/** Devuelve el array con los datos de las etiquetas. */
+		return $arrayEtiquetas;
+	}
 }

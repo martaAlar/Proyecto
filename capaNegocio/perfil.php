@@ -11,7 +11,7 @@ include 'usuario.php';
 /**
  * Declaración de la clase Usuario
 */
-class Perfil extends Usuario{
+class Perfil{
 	/**
 	 * @var string ID del usuario.
 	 * @access private 
@@ -175,33 +175,6 @@ class Perfil extends Usuario{
     }
 
 	/**
-	 * Método que valida un usuario.
-	 *
-	 * @access public
-	 * @return boolean	True en caso afirmativo
-	 * 					False en caso contrario.
-	 */
-	public function validaUsuario() : bool {
-
-		/** @var BDperfil Instancia un objeto de la clase. */
-		$bdperfil = new BDperfil();
-		/** Inicializa los atributos del objeto. */
-		$bdperfil->setUserId($this->userid);
-		$bdperfil->setColorPerfil($this->colorPerfil);
-		$bdperfil->setFotoPerfil($this->fotoPerfil);
-		$bdperfil->setBannerPerfil($this->bannerPerfil);
-
-		/** Comprueba si existe y gestiona un posible error. */
-		if ($bdperfil->insertarFotosColor()) {
-			/** Devuelve true si se ha conseguido. */
-			return true;
-		}
-
-		/** Devuelve false si se ha producido un error. */
-		return false;
-	}
-
-	/**
 	 * Método que inserta los datos de color e imagenes del usuario en la base de datos
 	 * 
 	 * @access public
@@ -247,5 +220,30 @@ class Perfil extends Usuario{
 
 		/** Devuelve false si se ha producido un error. */
 		return false;
+	}
+
+	/**
+	 * Método que carga los datos del perfil del usuario de la base de datos
+	 * 
+	 * @access public
+	 * @return array[]:Perfil Array de objetos de tipo Perfil.
+	 */
+	public function cargarInformacionPerfil() : array {
+		/** @var array[]:Perfil Array de objetos de tipo Perfil. */
+		$arrayPerfil = array();
+		/** @var BDPerfil Instancia un objeto de la clase. */
+		$bdperfil = new BDPerfil();
+		/** Inicializa los atributos del objeto. */
+		$bdperfil->setUserId($this->userid);
+		/** Inicializa el array de objetos Tarea. */
+		foreach($bdperfil->cargarPerfil() as $perfil) {
+			$this->setFotoPerfil($perfil[0]);
+			$this->setColorPerfil($perfil[1]);
+			$this->setBannerPerfil($perfil[2]);
+			$this->setDescripcion($perfil[3]);
+			$arrayPerfil[] = $perfil;
+		}
+		/** Devuelve el array. */
+		return $arrayPerfil;
 	}
 }

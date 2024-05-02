@@ -16,7 +16,7 @@ class BDUsuarios extends BDGestion {
 	 * @var int ID del usuario.
 	 * @access private 
 	 */
-	private int $userId;
+	private int $userid;
     /**
 	 * @var string Nombre de usuario del usuario.
 	 * @access private 
@@ -63,14 +63,14 @@ class BDUsuarios extends BDGestion {
 	private string $fechaReg;
 
     /**
-	 * Método que inicializa el atributo userId.
+	 * Método que inicializa el atributo userid.
 	 * 
 	 * @access public
-	 * @param string $userId ID del usuario.
+	 * @param string $userid ID del usuario.
 	 * @return void 
 	 */
-    public function setUserId(int $userId): void {
-        $this->userId = $userId;
+    public function setUserId(int $userid): void {
+        $this->userid = $userid;
     }
     /**
 	 * Método que inicializa el atributo username.
@@ -158,13 +158,13 @@ class BDUsuarios extends BDGestion {
 
 
     /**
-	 * Método que devuelve el valor del atributo $userId.
+	 * Método que devuelve el valor del atributo $userid.
 	 * 
 	 * @access public
 	 * @return int ID del usuario.
 	 */
     public function getUserId(): int {
-        return $this->userId;
+        return $this->userid;
     }
     /**
 	 * Método que devuelve el valor del atributo $username.
@@ -277,8 +277,8 @@ class BDUsuarios extends BDGestion {
 	 * @return int True si existe el usuario y False en otro caso
 	 */
 	public function conseguirID() : int {
-		/** @var int Inicialización de ID. */
-		$id = 0;
+		
+		$this->userid = 0;
 		/** Comprueba si existe conexión con la base de datos. */
 		if ($this->getPdocon()) {
 			/** @var PDOStatement Prepara la sentencia SQL. */
@@ -293,12 +293,12 @@ class BDUsuarios extends BDGestion {
 				/** Comprueba que el número de filas sea 1. */
 				if ($resultado->rowCount() === 1) {
 					/** Se asigna el ID del usuario. */
-					$this->userId = $resultado->fetchColumn(); 
+					$this->userid = $resultado->fetchColumn(); 
 				}
 			}
 		}
 		/**Devuelve el ID del usuario */
-		return $this->userId;
+		return $this->userid;
 	}
 	
 
@@ -452,6 +452,38 @@ class BDUsuarios extends BDGestion {
 		}
 		/** Devuelve false si se ha producido un error. */
 		return false;
+	}
+
+	/**
+	 * Método que carga la información del perfil del usuario de la base de datos.
+	 *
+	 * @access public
+	 * @return array[]:array[]:string Array de usuario.
+	 */
+	public function cargarPerfil(): array {
+		/** @var array[]:array[]:string con los datos del perfil. */
+		$arrayUsuario = array();
+		//var_dump($this->email);
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+				"SELECT username, nombre, prApellido, segApellido
+				FROM usuarios
+				WHERE userid = :userid");
+			/** Vincula los parámetros al nombre de variable especificado. */
+			$resultado->bindParam(':userid', $this->userid);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que existan datos. */
+				if ($resultado->rowcount() == 1) {
+					/** @var array[]:string Almacena los datos de la consulta. */
+					$arrayUsuario = $resultado->fetch();
+				}
+			}
+		}
+		/** Devuelve el array con los datos del usuario. */
+		return $arrayUsuario;
 	}
 
 }
