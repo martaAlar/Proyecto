@@ -6,7 +6,6 @@
 
 /** Incluye la clase. */
 include '../../capaDatos/bdetiquetas.php';
-include 'usuario.php';
 /**
  * Declaración de la clase Etiquetas.
 */

@@ -6,7 +6,7 @@
 
 /** Incluye la clase. */
 include '../../capaDatos/bdperfil.php';
-include 'usuario.php';
+//include 'usuario.php';
 
 /**
  * Declaración de la clase Usuario

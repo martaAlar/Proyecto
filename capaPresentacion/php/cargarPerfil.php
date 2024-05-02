@@ -1,6 +1,7 @@
 <?php
 include '../../capaNegocio/perfil.php';
 include '../../capaNegocio/etiquetas.php';
+include '../../capaNegocio/usuario.php';
 session_start();
 /**Manda la información al módulo de JavaScript */
 header('Content-Type: application/json');
@@ -19,3 +20,4 @@ $datosPerfil[0] = $usuario->cargarInformacionPerfil();
 $datosPerfil[1] =  $perfil->cargarInformacionPerfil();
 $datosPerfil[2] =  $etiqueta->cargarEtiquetasPerfil();
 echo json_encode($datosPerfil);
+//echo $_SESSION['id'];

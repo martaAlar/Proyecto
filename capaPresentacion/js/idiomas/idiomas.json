@@ -16,43 +16,22 @@
 
             },
             "registroP2": {
-
+                "titulo": "Profile editor",
+                "informacion": "Select the color that will be shown in your profile",
+                "previsualizar": "Preview color",
+                "atras": "Back",
+                "siguiente": "Next"
             },
             "registroP3": {
-
+                "titulo": "Description",
+                "atras": "Back",
+                "siguiente": "Next"
             },
             "registroP4": {
-
-            },
-            "perfil": {
-
-            }
-        }
-    },
-    {
-        "pl": {
-            "index": {
-
-            },
-            "inicioSesion": {
-                "titulo": "Zaloguj się",
-                "nombre": "Nazwa użytkownika",
-                "password": "Hasło",
-                "error": "Nieprawidłowe dane logowania.",
-                "crearCuenta": "",
-                "boton": "" 
-            },
-            "registroP1": {
-
-            },
-            "registroP2": {
-
-            },
-            "registroP3": {
-
-            },
-            "registroP4": {
-
+                "titulo": "Tags",
+                "informacion": "Select up to 5 tags in which you're interested in",
+                "atras": "Back",
+                "siguiente": "Next"
             },
             "perfil": {
 
@@ -76,13 +55,22 @@
 
             },
             "registroP2": {
-
+                "titulo": "Edición de perfil",
+                "informacion": "Seleccione el color que se mostrará en el fondo de su perfil",
+                "previsualizar": "Previsualizar color",
+                "atras": "Atrás",
+                "siguiente": "Siguiente"
             },
             "registroP3": {
-
+                "titulo": "Descripción",
+                "atras": "Atrás",
+                "siguiente": "Siguiente"
             },
             "registroP4": {
-
+                "titulo": "Etiquetas",
+                "informacion": "Seleccione hasta 5 etiquetas en las que esté interesado",
+                "atras": "Atras",
+                "siguiente": "Siguiente"
             },
             "perfil": {
 

@@ -6,13 +6,12 @@
 
 /** Incluye la clase. */
 //echo 'Antes<br>';
-include_once '../../capaDatos/bdusuarios.php';
+include '../../capaDatos/bdusuarios.php';
 //echo 'Incluye bdusuarios en usuario.php<br>';
 /**
  * Declaración de la clase Usuario
 */
 class Usuario {
-
 	/**
 	 * @var int ID del usuario.
 	 * @access private 

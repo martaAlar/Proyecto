@@ -57,6 +57,15 @@ document.addEventListener('DOMContentLoaded', function () {
          
     }
 
+    /*window.onload = function(){
+        if(document.cookie.split(';')[0].substring(5) == 'ES'){
+        changeLanguage("es");
+        }else if(document.cookie.split(';')[0].substring(5) == 'EN'){
+            changeLanguage("eng");
+        }
+        console.log('ha entrado');
+    }*/
+    
     // Cambiar idioma al cargar la página según el hash
     if (window.location.hash === "#eng") {
         changeLanguage("eng");

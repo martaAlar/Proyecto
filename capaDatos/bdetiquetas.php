@@ -5,8 +5,8 @@
  */
 
 /** Incluye la clase. */
-include 'bdgestion.php';
-include 'bdusuarios.php';
+include_once 'bdgestion.php';
+//include 'bdusuarios.php';
 
 /**
  * Declaración de la clase BDperfil que hereda de BDGestion.

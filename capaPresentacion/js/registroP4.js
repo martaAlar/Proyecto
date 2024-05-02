@@ -6,13 +6,14 @@ window.onload = function() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
+                
                 // Si la solicitud se completó correctamente,
                 // Procesa la respuesta 
-                var respuesta = JSON.parse(xhr.responseText);
+                var respuesta = JSON.parse(xhr.response);
                 //var respuesta = xhr.responseText;
-                //console.log(respuesta);
+                console.log(respuesta);
                 respuesta.forEach(etiqueta => {
-                    //console.log(etiqueta);
+                    ////console.log(etiqueta);
                     let input = document.createElement('input');
                     input.setAttribute('type', 'checkbox');
                     input.setAttribute('class', 'botonesElección');
@@ -23,6 +24,12 @@ window.onload = function() {
 
                     let label = document.createElement('label');
                     label.innerText = etiqueta.nombreEtiquetaES;
+                    if (window.location.hash === "#eng") {
+                        label.innerText = etiqueta.nombreEtiquetaEN;
+                    } else if (window.location.hash === "#es") {
+                        label.innerText = etiqueta.nombreEtiquetaES;
+                    }
+                    console.log(etiqueta.nombreEtiquetaEN)
                     label.setAttribute('for', etiqueta.idHTML);
 
                     contenedor.appendChild(input);

@@ -4,7 +4,7 @@ let nombreApellidos = document.getElementById('nombreApellidos');
 let username = document.getElementById('username');
 let descripcion = document.getElementById('descripcion');
 let color = document.getElementsByTagName('body')[0];*/
-
+var divTags = document.getElementById('tagsDivPerfil');
 function abrirVentana() {
     // Definir las dimensiones de la ventana emergente
     var width = 600;
@@ -57,6 +57,23 @@ window.onload = function() {
                 document.getElementById('descripcion').innerHTML = respuesta[1][6];
                 document.getElementsByTagName('body')[0].style.background = 'linear-gradient(50deg,#f0ebebb2,'+respuesta[1][2]+')';
 
+                let etiquetas = respuesta[2];
+                const cookies = document.cookie.split(';')[0].substring(5);
+                
+                etiquetas.forEach(etiqueta => {
+                    //console.log(etiqueta)
+                    let tag = document.createElement('div');
+                    tag.setAttribute('class', 'tagsPerfil');
+                    if(cookies == 'EN'){
+                        tag.innerText = etiqueta[2];
+                        console.log('eng')
+                    }else{
+                        console.log('es');
+                        tag.innerText = etiqueta[1];
+                    }
+                    divTags.appendChild(tag);
+                });
+                //console.log(cookies)
             } else {
                 // Si hay algún error
                 console.error('Hubo un error en la solicitud.');

@@ -6,7 +6,7 @@
 
 /** Incluye la clase. */
 echo 'Lo ha pasado';
-include_once 'bdusuarios.php';
+//include_once 'bdusuarios.php';
 echo 'Incluye bdusuarios';
 
 /**
