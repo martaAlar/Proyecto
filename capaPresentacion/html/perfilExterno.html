@@ -14,7 +14,7 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" crossorigin="anonymous">
     
-    <link rel="stylesheet" type="text/css" href="../css/perfil.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/perfilExterno.css"/>
 </head>
 <body>
     <nav class="barraNavegacion">
@@ -25,7 +25,11 @@
         </div>
         <div id="contenedorIframe"></div>
         <h1 class="tituloNavegación"  style="margin-bottom: 0px;" >Interacción</h1>
-        <button class="botonNavPerfil"><i class="fas fa-plus" id="iconosNav"></i> Crear publicación</button>
+        <button class="botonNavPerfil"><i class="far fa-heart"  id="iconosNav"></i> Me gusta</button>
+        <br>
+        <button class="botonNavPerfil"><i class="fas fa-user-plus" id="iconosNav"></i> Seguir</button>
+        <br>
+        <button class="botonNavPerfil"><i class="fas fa-eye-slash" id="iconosNav"></i> Ocultar</button>
         <br>
         
         <hr>
@@ -35,7 +39,6 @@
         <button class="botonNavPerfil"><i class="fas fa-users" id="iconosNav"></i> Seguidos</button><p id="informacion">40</p>
         <br>
         <hr>
-        <button class="botonNavPerfil" onclick="cargarContenido()" style="position: absolute; bottom: 9px;">Configuración</button>
     </nav>
         <section id="contenidoPrincipal">
         <header>
@@ -57,62 +60,6 @@
             </div>
         </header>
 
-        <aside class="matching">
-            
-            <h1 class="tituloNavegación" style="padding-top: 1%;">Matching</h1>
-            <button class="botonPerfilMatching">
-                <div class="perfilesMatching">
-
-                    <div class="fila1">
-                        <img src="../recursos/imagenesPrototipo/pfp2.jpg" class="pfpMatching">
-                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
-                    </div>    
-
-                    <div class="tagsDivMatching">
-                        <div class="tagsMatching">Saltar</div>
-                        <div class="tagsMatching">Pienso</div>
-                        <div class="tagsMatching">Rascadores</div>
-                        <div class="tagsMatching">...</div>
-                    </div>
-                </div>
-            </button>
-
-            <button class="botonPerfilMatching">
-                <div class="perfilesMatching">
-
-                    <div class="fila1">
-                        <img src="../recursos/imagenesPrototipo/pfp3.jpg" class="pfpMatching">
-                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
-                    </div>    
-
-                    <div class="tagsDivMatching">
-                        <div class="tagsMatching">Saltar</div>
-                        <div class="tagsMatching">Pienso</div>
-                        <div class="tagsMatching">Rascadores</div>
-                        <div class="tagsMatching">...</div>
-                    </div>
-                </div>
-            </button>
-
-            <button class="botonPerfilMatching">
-                <div class="perfilesMatching">
-
-                    <div class="fila1">
-                        <img src="../recursos/imagenesPrototipo/pfp4.jpg" class="pfpMatching">
-                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
-                    </div>    
-
-                    <div class="tagsDivMatching">
-                        <div class="tagsMatching">Saltar</div>
-                        <div class="tagsMatching">Pienso</div>
-                        <div class="tagsMatching">Rascadores</div>
-                        <div class="tagsMatching">...</div>
-                    </div>
-                </div>
-            </button>
-            
-            </div>
-        </aside>
         <article class="publicaciones">
 
             <div class="publicacionPrueba">

@@ -11,13 +11,13 @@ body {
         min-width: 600px;*/
 }
 
-@media (max-height: 848px) {
+@media (max-height: 866px) {
     body {
         min-height: none;
     }
 
     .barraNavegacion {
-        height: 818px !important;
+        height: 870px !important;
     }
 
     .publicaciones {
@@ -46,9 +46,7 @@ body {
 
 
 @media (max-width: 600px) {
-    body {
-        min-width: none;
-    }
+    
 
 }
 
@@ -149,7 +147,12 @@ hr {
 }
 
 .botonNavPerfil:hover{
-    background-color: rgba(227, 227, 227, 0.454);
+    background-color: rgba(223, 216, 216, 0.454);
+}
+
+#iconosNav {
+    margin-right: 7px;
+    height: 25px;
 }
 
 .barraBusqueda {
@@ -197,12 +200,14 @@ hr {
     
 }
 
+
+
 #pfp {
     position: relative;
     z-index: 200;
     margin-top: -120px;
     margin-bottom: 10px;
-    margin-left: 5%;
+    margin-left: 8px;
     width: 150px;
     height: 150px;
     border-radius: 90px;
@@ -297,13 +302,14 @@ hr {
 
 .matching h1 {
     margin-top: 8px;
+    margin-bottom: 4px;
 }
 .botonPerfilMatching {
     background-color: transparent;
     border-color: transparent;
     border-radius: 10px;
     margin-left: 5px;
-    margin-top: 8px;
+    margin-top: 3px;
 }
 
 .botonPerfilMatching:hover {
@@ -347,13 +353,18 @@ hr {
     margin: 1px;
     background-color: rgba(255, 0, 0, 0.397);
 }
-
+.iconoGrande {
+    width: auto;
+    margin-left: 30px;
+    height: 100px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
 .publicaciones {
     background-color: #f9f9f954;
     box-shadow: 0 0 5px 5px #746e6e48;
     border-radius: 10px;
     width: 70%;
-    height: 52%;
     margin-top: 70px;
     margin-left: 8px;
     overflow:scroll;
@@ -376,6 +387,11 @@ hr {
     border-radius: 10px;
 }
 
+@media (min-width: 866px) {
+    .publicaciones {
+        height: calc(100% - 470px);  
+    }
+}
 /* PUBLICACIONES*/
 .publicacionPrueba {
     flex-direction: column;

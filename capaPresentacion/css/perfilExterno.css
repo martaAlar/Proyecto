@@ -1,0 +1,64 @@
+@import url(perfil.css);
+
+.publicaciones {
+    background-color: #f9f9f954;
+    box-shadow: 0 0 5px 5px #746e6e48;
+    border-radius: 10px;
+    width: 99%;
+    margin-top: 70px;
+    margin-left: 8px;
+    overflow:scroll;
+    overflow-x: hidden;
+}
+
+.publicaciones::-webkit-scrollbar {
+    width: 5px;
+    
+}
+
+.publicaciones::-webkit-scrollbar-track {
+    background-color: transparent; 
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.publicaciones::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.739);
+    border-radius: 10px;
+}
+
+@media (min-width: 866px) {
+    .publicaciones {
+        height: calc(100% - 470px);  
+    }
+}
+/* PUBLICACIONES*/
+.publicacionPrueba {
+    flex-direction: column;
+    width: 98%;
+    margin-right: 1%;
+    margin-top: 2%;
+    display: flex;
+}
+.fotoPublicacion {
+    width: 35%;
+    margin-top: 15px;
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+
+.textoPublicacion {
+    width: 60%;
+    margin-left: 2%;
+}
+
+.meGustaBoton {
+    font-size: 25px;
+    width: 50px;
+    height: auto;
+    padding-bottom: 20px;
+    margin: 5px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
