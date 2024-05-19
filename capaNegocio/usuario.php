@@ -411,7 +411,7 @@ class Usuario {
 		$bdusuarios->setUsername($this->username);
 		$bdusuarios->setContrasena($this->contrasena);
 		$bdusuarios->setFechaNac($this->fechaNac);
-		$bdusuarios->setFechaReg($this->fechaNac);
+		$bdusuarios->setFechaReg($this->fechaReg);
 
 		/** Inserta un nuevo usuario y comprueba un posible error. */
 		if ($bdusuarios->insertarUsuarioDatos()) {

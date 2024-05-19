@@ -20,23 +20,40 @@
     <nav class="barraNavegacion">
         <img src="../recursos/iconos/Icono.png" class="iconoPequeño">
         <img src="../recursos/iconos/logoGrande.png" class="iconoGrande">
-        <div style="display: inline-flex;">
-            <input type="search" placeholder="Buscar @..." class="barraBusqueda"><button id="buscar"><i class="fas fa-search"></i></button>
-        </div>
         <div id="contenedorIframe"></div>
-        <h1 class="tituloNavegación"  style="margin-bottom: 0px;" >Interacción</h1>
-        <button class="botonNavPerfil"><i class="fas fa-plus" id="iconosNav"></i> Crear publicación</button>
+        <h1 class="tituloNavegación"  style="margin-bottom: 0px;">Interacción</h1>
+        <button class="botonNavPerfil" id="crearPublicacion" onclick="publicacion()">
+            <i class="fas fa-plus" id="iconosNav"></i>
+            <span class="textoBoton">Crear publicación</span>
+        </button>
         <br>
-        
+        <a href="feed.html">
+            <button class="botonNavPerfil" id="feed">
+                <i class="fas fa-comments" id="iconosNav"></i>
+                <span class="textoBoton">Feed</span>
+            </button>
+        </a>
+        <br>
         <hr>
         <h1 class="tituloNavegación" style="margin-bottom: 0px;">Información</h1>
-        <button class="botonNavPerfil"><i class="fas fa-users" id="iconosNav"></i> Seguidores</button><p id="informacion">400k</p>
+        <button class="botonNavPerfil">
+            <i class="fas fa-users" id="iconosNav"></i>
+            <span class="textoBoton">Seguidores</span>
+            <p id="informacion" class="informacion">4000k</p>
+        </button>
         <br>
-        <button class="botonNavPerfil"><i class="fas fa-users" id="iconosNav"></i> Seguidos</button><p id="informacion">40</p>
+        <button class="botonNavPerfil">
+            <i class="fas fa-users" id="iconosNav"></i>
+            <span class="textoBoton">Seguidos</span>
+            <p id="informacion" class="informacion">4000k</p>
+        </button>
         <br>
         <hr>
-        <button class="botonNavPerfil" onclick="cargarContenido()" style="position: absolute; bottom: 9px;">Configuración</button>
+        <button class="botonNavPerfil" onclick="configuracion()" style="position: absolute; bottom: 9px;">
+            <span class="textoBoton">Configuración</span>
+        </button>
     </nav>
+    
         <section id="contenidoPrincipal">
         <header>
             <img src="../recursos/iconos/bannerDefault.png" id="banner">
@@ -53,118 +70,54 @@
                 Redes sociales
             </div>
             <div class="tagsDivPerfil" id="tagsDivPerfil">
-                
+            
             </div>
         </header>
 
-        <aside class="matching">
+        <aside class="matching" id="divMatching">
             
             <h1 class="tituloNavegación" style="padding-top: 1%;">Matching</h1>
             <button class="botonPerfilMatching">
                 <div class="perfilesMatching">
 
-                    <div class="fila1">
+                    <div class="filaMatching">
                         <img src="../recursos/imagenesPrototipo/pfp2.jpg" class="pfpMatching">
-                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
+                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido <br><span class="usernameMatching">@slkgaj</span></h4>
                     </div>    
 
-                    <div class="tagsDivMatching">
-                        <div class="tagsMatching">Saltar</div>
-                        <div class="tagsMatching">Pienso</div>
-                        <div class="tagsMatching">Rascadores</div>
-                        <div class="tagsMatching">...</div>
-                    </div>
                 </div>
             </button>
-
             <button class="botonPerfilMatching">
                 <div class="perfilesMatching">
 
-                    <div class="fila1">
-                        <img src="../recursos/imagenesPrototipo/pfp3.jpg" class="pfpMatching">
-                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
+                    <div class="filaMatching">
+                        <img src="../recursos/imagenesPrototipo/pfp2.jpg" class="pfpMatching">
+                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido <br><span class="usernameMatching">@slkgaj</span></h4>
                     </div>    
 
-                    <div class="tagsDivMatching">
-                        <div class="tagsMatching">Saltar</div>
-                        <div class="tagsMatching">Pienso</div>
-                        <div class="tagsMatching">Rascadores</div>
-                        <div class="tagsMatching">...</div>
-                    </div>
                 </div>
             </button>
-
             <button class="botonPerfilMatching">
                 <div class="perfilesMatching">
 
-                    <div class="fila1">
-                        <img src="../recursos/imagenesPrototipo/pfp4.jpg" class="pfpMatching">
-                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido </h4>
+                    <div class="filaMatching">
+                        <img src="../recursos/imagenesPrototipo/pfp2.jpg" class="pfpMatching">
+                        <h4 class="nombreMatching">Nombre Apellido Apellido Apellido <br><span class="usernameMatching">@slkgaj</span></h4>
                     </div>    
 
-                    <div class="tagsDivMatching">
-                        <div class="tagsMatching">Saltar</div>
-                        <div class="tagsMatching">Pienso</div>
-                        <div class="tagsMatching">Rascadores</div>
-                        <div class="tagsMatching">...</div>
-                    </div>
                 </div>
             </button>
+
+            
+
+            
             
             </div>
         </aside>
-        <article class="publicaciones">
+        <article class="publicaciones" id="divPosts">
 
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
-                    <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
-                    <p class="textoPublicacion">
-                        Miau miau miau miau, miau miau miau, miau miau 
-                        miau miau miau miau. Miau miau miau miau miau miau, 
-                        miau, miau miau miau miau miau. Miau miau miau miau 
-                        miau miau miau miau miau miau, miau miau miau miau miau.
-                    </p>
-                </div>
-            </div>
-
-            <div class="publicacionPrueba">
-                <div class="fila1">
+            <div class="publicacion">
+                <div class="filaPost">
                     <img src="../recursos/imagenesPrototipo/publicacion1.jpg" class="fotoPublicacion">
                     <p class="textoPublicacion">
                         Miau miau miau miau, miau miau miau, miau miau 

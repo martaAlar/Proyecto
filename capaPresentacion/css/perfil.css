@@ -21,11 +21,11 @@ body {
     }
 
     .publicaciones {
-        height: 404px !important;
+        height: 432px !important;
     }
 
     .matching {
-        height: 385px !important;
+        height: fit-content !important;
         margin-bottom: 5px !important;
     }
 
@@ -62,7 +62,10 @@ body {
     margin-right: 10%;
     width: 90%;
 }
-
+.textoBoton {
+    position: absolute;
+    padding-top: 4px;
+}
 hr {
     background-color: rgba(128, 84, 84, 0.173);
     box-shadow: 0 0 2px 0 #746e6e5e;
@@ -89,17 +92,60 @@ hr {
     }
 }
 @media (max-width: 1200px) {
-    .barraNavegacion *{
+    .tituloNavegación {
         display: none;
     }
+    .iconoGrande{
+        display:none;
+    }
+    .textoBoton {
+        display: none;
+    }
+    .informacion{
+        display: none;
+    }
+    hr {
+        width: 80%;
+        margin-left: -0.5px;
+    }
+    .botonNavPerfil {
+        width: 80% !important;
+    }
+
+    .botonNavPerfil:hover {
+        width: 270px !important;
+        background-color: rgba(209, 201, 201, 0.839);
+        z-index: 110 !important;
+    }
+
+    /*.botonNavPerfil:hover + .textoBoton{
+        display:unset;
+        background-color: red;
+        margin-left: -450px;
+    }*/
+    .botonNavPerfil:hover .textoBoton {
+        display: unset; 
+        margin-left: 40px;
+        width: 200px;
+        z-index: 111 !important;
+    }
+
+    .botonNavPerfil:hover .informacion {
+        display: unset; 
+        margin-left: 140px !important; 
+        margin-top: 2px !important;
+    }
+
     .iconoPequeño {
-        display: block;
+        display: unset;
         position: absolute;
         width: 90%;
-        margin-top: 5px;
+        margin-top: -55px;
+        margin-left: -5px;
     }
     .barraNavegacion{
-        width: 7% !important;
+        width: 50px !important;
+        padding-top: 60px;
 }
     #contenidoPrincipal{
         height: 95%;
@@ -155,7 +201,7 @@ hr {
     height: 25px;
 }
 
-.barraBusqueda {
+/*.barraBusqueda {
     padding: 5px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -182,7 +228,7 @@ hr {
 
 #buscar:hover {
     background-color: rgb(221, 221, 221);
-}
+}*/
 
 #informacion {
     position: absolute;
@@ -195,7 +241,7 @@ hr {
 #banner{
     width: 100%;
     margin: 0 auto;
-    height: 330px;
+    height: 340px;
     mask-image: radial-gradient(circle at center, black 0%, transparent 98%);
     
 }
@@ -204,13 +250,13 @@ hr {
 
 #pfp {
     position: relative;
-    z-index: 200;
-    margin-top: -120px;
+    z-index: 100;
+    margin-top: -180px;
     margin-bottom: 10px;
     margin-left: 8px;
-    width: 150px;
-    height: 150px;
-    border-radius: 90px;
+    width: 12%;
+    height: 12%;
+    border-radius: 200px;
     border: 7px solid white
 
 }
@@ -218,7 +264,7 @@ hr {
 .nombreApellidos {
     z-index: 20;
     position: absolute;
-    margin-top: -155px;
+    margin-top: -145px;
     margin-left: 22.4%;
     font-size: 28px;
     background-color: #f9f9f986;
@@ -231,7 +277,7 @@ hr {
     z-index: 20;
     background-color: red;
     position: absolute;
-    margin-top: -100px;
+    margin-top: -90px;
     margin-left: 22.4%;
     font-size: 18px;
     background-color: #f9f9f986;
@@ -267,8 +313,9 @@ hr {
     display: inline-block;
     padding: 2px 5px 2px 5px;
     border-radius: 9px;
-    margin: 1px;
+    margin: 3px;
     background-color: rgba(255, 0, 0, 0.397);
+    box-shadow: 0 0 5px 5px #746e6e48;
 }
 #redesSociales {
     background-color: #f9f9f954;
@@ -324,22 +371,40 @@ hr {
     margin: 0px -6px;
 }
 
-.fila1 {
+.filaPost {
     display: flex; 
-    margin-bottom: -5px;
+    text-align: left;
+    margin-top: -10px;
+}
+
+.filaMatching {
+    display: flex; 
+    text-align: left;
 }
 
 .pfpMatching {
-    width: 25%;
-    height: 25%;
+    width: 30%;
+    height: 30%;
     border-radius: 100px;
     margin-right: 10px;
     margin-bottom: 8px; 
+    margin-top: 8px;
 }
 
 .nombreMatching {
+    font-size: 120%;
     width: 65%;
     word-wrap: break-word;
+    margin-top: 8px;
+}
+
+.usernameMatching {
+    font-size: 90%;
+    width: 54%;
+    position: absolute;
+    margin-top: 5px;
+    font-weight: 120;
+    margin-left: 15px;
 }
 
 .tagsDivMatching {
@@ -389,27 +454,32 @@ hr {
 
 @media (min-width: 866px) {
     .publicaciones {
-        height: calc(100% - 470px);  
+        height: calc(100% - 445px);  
     }
 }
 /* PUBLICACIONES*/
-.publicacionPrueba {
+.publicacion {
     flex-direction: column;
-    width: 98%;
-    margin-right: 1%;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-top: 2%;
     display: flex;
 }
+
+.publicacion:hover {
+    background-color: rgba(227, 227, 227, 0.454);
+}
 .fotoPublicacion {
-    width: 35%;
+    width: 30%;
     margin-top: 15px;
-    margin-left: 1%;
+    margin-left: 2%;
     margin-bottom: 3%;
 }
 
 .textoPublicacion {
     width: 60%;
     margin-left: 2%;
+    font-size: 120%;
 }
 
 .meGustaBoton {

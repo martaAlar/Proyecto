@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/crearPublicacion.css"/>
+</head>
+<body>
+    <div class="fondo">
+        <h2 class="titulos" style="margin-top: 20px;">Creador de publicación</h2>
+        <div id="contenido">
+            <div class="publicacion">
+                <button class="añadirFoto">+</button>
+                <input type="file" style="display: none;" id="inputFoto" name="foto">
+                <div contenteditable="true" id="editableDiv">Escribe el texto de tu publicación</div>
+                
+                
+            </div>
+            <div id="contenedorEtiquetas"></div>
+            <div id="contenedorAyuda">
+            <p style="margin-bottom: 1px; font-size: 25px; margin-top: 10px;"><span id="n">0</span>/250</p>    
+                <button type="button" onclick="negrita()" style="font-weight:bold;" class="botones">N</button>
+                <button type="button" onclick="cursiva()" style="font-weight:bold;" class="botones"><i>K</i></button>
+                <button type="button" onclick="borrarFormato()" class="botones">Borrar formato</button>
+                <br>
+                <input id="boton" type="submit" class="botones" value="Publicar" style="margin-top: 10px; font-size: 18px;">
+            </div>
+        </div>
+        
+            
+    </div>
+    <script src="../js/crearPublicacion.js"></script>   
+</body>
+</html>

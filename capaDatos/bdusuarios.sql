@@ -83,19 +83,20 @@ DROP TABLE IF EXISTS posts;
 CREATE TABLE posts(
     postid INT PRIMARY KEY AUTO_INCREMENT,
     userid INT,
+    etiquetaid INT,
     contenido VARCHAR(400),
     foto VARCHAR(255),
     fechaPublic TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    likes INT DEFAULT 0,
     FOREIGN KEY (userid) REFERENCES usuarios(userid)
 );
-DROP TABLE IF EXISTS bloqueos;
-CREATE TABLE bloqueos (
-    bloqueanteid INT,
-    bloqueadoid INT,
-    PRIMARY KEY (bloqueanteid, bloqueadoid),
-    FOREIGN KEY (bloqueanteid) REFERENCES usuarios(userid),
-    FOREIGN KEY (bloqueadoid) REFERENCES usuarios(userid)
+DROP TABLE IF EXISTS interaccion;
+CREATE TABLE interaccion (
+    realizanteid INT,
+    receptorid INT,
+    accion INT,
+    PRIMARY KEY (realizanteid, receptorid),
+    FOREIGN KEY (realizanteid) REFERENCES usuarios(userid),
+    FOREIGN KEY (receptorid) REFERENCES usuarios(userid)
 );
 /*DELETE FROM bloqueos WHERE bloqueante_id = 1 AND bloqueado_id = 2; 
     orden para desbloquear
@@ -107,3 +108,23 @@ CREATE TABLE bloqueos (
   LIMIT 5; -- Adjust the limit as needed
     en matching, para evitar mostrar usuarios que están bloqueados
 */
+
+SELECT u.userid, u.username, u.nombre, u.prApellido, perfil.fotoPerfil
+                FROM usuarios u, perfil 
+                WHERE u.userid != 1
+                AND EXISTS (
+                    SELECT eu1.etiquetaid, e.nombreEtiquetaES AS nombreEtiqueta
+                    FROM etiquetasUsuario eu1
+                    INNER JOIN etiquetasUsuario eu2 ON eu1.etiquetaid = eu2.etiquetaid
+                    INNER JOIN etiquetas e ON eu1.etiquetaid = e.etiquetaid
+                    WHERE eu1.userid = 1
+                    AND eu2.userid = u.userid
+                )
+                AND NOT EXISTS (
+                    SELECT 1
+                    FROM interaccion i
+                    WHERE (i.realizanteid = 1 AND i.receptorid = u.userid AND (i.accion = 2 OR i.accion = 3))
+                       OR (i.receptorid = 1 AND i.realizanteid = u.userid AND (i.accion = 2 OR i.accion = 3))
+                )
+				ORDER BY RAND()
+				LIMIT 3;
