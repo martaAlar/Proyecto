@@ -237,4 +237,48 @@ class BDPosts extends BDGestion {
 		/** Devuelve el array con los datos de lsos posts. */
 		return $arrayPosts;
 	}
+
+    /**
+	 * Método que lee los posts del usuario de la base de datos.
+	 *
+	 * @access public
+	 * @return array[]:array[]:string Array de posts.
+	 */
+	public function cargarPostsFeed($etiqueta): array {
+		/** @var array[]:array[]:string con los datos de las etiquetas. */
+		$arrayPosts = array();
+		/** Comprueba si existe conexión con la base de datos. */
+		if ($this->getPdocon()) {
+			/** @var PDOStatement Prepara la sentencia SQL. */
+			$resultado = $this->getPdocon()->prepare(
+				"SELECT p.*, u.userid, u.nombre, u.prApellido, u.segApellido, u.username, pf.fotoPerfil
+                FROM posts p
+                JOIN etiquetas e ON p.etiquetaid = e.etiquetaid
+                JOIN usuarios u ON p.userid = u.userid
+                JOIN perfil pf ON u.userid = pf.userid
+                WHERE e.etiquetaid = :etiquetaid
+                AND p.userid NOT IN (
+                    SELECT i.receptorid
+                    FROM interaccion i
+                    WHERE i.realizanteid = :userid
+                    AND i.accion = 3
+                )
+                LIMIT 50;
+                "
+			);
+			/** Vincula los parámetros al nombre de variable especificado. */
+			$resultado->bindParam(':userid', $this->userid);
+            $resultado->bindParam(':etiquetaid', $etiqueta);
+			/** Ejecuta la sentencia preparada y comprueba un posible error. */
+			if ($resultado->execute()) {
+				/** Comprueba que existen etiquetas. */
+				if ($resultado->rowCount() > 0) {
+					/** Rellenar al array con los datos de las etiquetas. */
+					$arrayPosts = $resultado->fetchAll();
+				}
+			}
+		}
+		/** Devuelve el array con los datos de lsos posts. */
+		return $arrayPosts;
+	}
 }

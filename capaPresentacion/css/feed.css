@@ -1,0 +1,12 @@
+@import url(hojaCentral.css);
+
+.nav-item {
+    background-color: rgba(234, 223, 223, 0.741);
+    margin-right: 7%;
+    width: 12%;
+    border-top-right-radius: 20px;
+    
+}
+.nav-item a {
+    color: rgb(92, 44, 44);
+}

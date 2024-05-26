@@ -46,6 +46,18 @@ class Post {
      */
     private string $fechaPublic;
 
+    /**
+	 * @var Usuario Usuario encargado de realizar la tarea.
+	 * @access private
+	 */
+	private Usuario $usuario;
+
+    /**
+	 * @var Perfil Perfil del usuario relacionado a un post.
+	 * @access private
+	 */
+	private Perfil $perfil;
+
     // Setters
 
     /**
@@ -114,6 +126,28 @@ class Post {
         $this->fechaPublic = $fechaPublic;
     }
 
+    /**
+	 * Método que inicializa el atributo $descripcion.
+	 *
+	 * @access public
+	 * @param Usuario $usuario Usuario asignado a la tarea.
+	 * @return void
+	 */
+	public function setUsuario(Usuario $usuario): void {
+		$this->usuario = $usuario;
+	}
+
+    /**
+	 * Método que inicializa el atributo $perfil.
+	 *
+	 * @access public
+	 * @param Usuario $usuario Usuario asignado al perfil.
+	 * @return void
+	 */
+	public function setPerfil(Perfil $perfil): void {
+		$this->perfil = $perfil;
+	}
+
     // Getters
 
     /**
@@ -177,6 +211,26 @@ class Post {
     }
 
     /**
+	 * Método que devuelve el valor del atributo $usuario.
+	 *
+	 * @access public
+	 * @return Usuario Usuario asignado a la tarea.
+	 */
+	public function getUsuario(): Usuario {
+		return $this->usuario;
+	}
+
+    /**
+	 * Método que devuelve el valor del atributo $perfil.
+	 *
+	 * @access public
+	 * @return Perfil Perfil asignado al usuario.
+	 */
+	public function getPerfil(): Perfil {
+		return $this->perfil;
+	}
+
+    /**
 	 * Método que añade un nuevo post.
 	 *
 	 * @access public
@@ -216,13 +270,51 @@ class Post {
 		$bdposts = new BDPosts();
 		/** Inicializa los atributos del objeto. */
 		$bdposts->setUserId($this->userid);
-		/** Inicializa el array de objetos Tarea. */
+		/** Inicializa el array de objetos Post. */
 		foreach($bdposts->cargarPosts() as $post) {
 			$this->setPostId($post[0]);
 			$this->setUserId($post[1]);
 			$this->setEtiquetaId($post[2]);
             $this->setContenido($post[3]);
             $this->setFoto($post[4]);
+			$arrayPosts[] = $post;
+		}
+		/** Devuelve el array. */
+		return $arrayPosts;
+	}
+
+    /**
+	 * Método que añade un nuevo post.
+	 *
+	 * @access public
+	 * @return array[]:Post	True en caso afirmativo
+	 * 					False en caso contrario.
+	 */
+	public function cargarPostsFeed($etiqueta) : array {
+		/** @var array[]:Post Array de objetos de tipo Post. */
+		$arrayPosts = array();
+		/** @var BDPosts Instancia un objeto de la clase. */
+		$bdposts = new BDPosts();
+		/** Inicializa los atributos del objeto. */
+		$bdposts->setUserId($this->userid);
+		/** Inicializa el array de objetos Post. */
+		foreach($bdposts->cargarPostsFeed($etiqueta) as $post) {
+			$this->setPostId($post[0]);
+			$this->setUserId($post[1]);
+			$this->setEtiquetaId($post[2]);
+            $this->setContenido($post[3]);
+            $this->setFoto($post[4]);
+            $this->setFechaPublic($post[5]);
+            $usuario = new Usuario();
+            $usuario->setUserId($post[6]);
+            $usuario->setNombre($post[7]);
+            $usuario->setPrApellido($post[8]);
+            $usuario->setSegApellido($post[9]);
+            $usuario->setUsername($post[10]);
+            $this->setUsuario($usuario);
+            $perfil = new Perfil();
+            $perfil->setFotoPerfil($post[11]);
+            $this->setPerfil($perfil);
 			$arrayPosts[] = $post;
 		}
 		/** Devuelve el array. */

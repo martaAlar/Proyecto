@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Define an array to store selected numbers
+        let selectedNumbers = [];
+
+        function generateRandomNumber() {
+            if (selectedNumbers.length === 23) {
+                selectedNumbers = [];
+            }
+            let randomNumber;
+            do {
+                // Generate a random number between 1 and 23
+                randomNumber = Math.floor(Math.random() * 23) + 1;
+            } while (selectedNumbers.includes(randomNumber)); // Repeat if the number is already selected
+
+            // Add the selected number to the array
+            selectedNumbers.push(randomNumber);
+
+            return randomNumber;
+        }
+
+            // Generate 300 random numbers without repetition
+            for (let i = 1; i < 100; i++) {
+                let sentencia = 'insert into etiquetasUsuario (userid, etiquetaid) values ('+i + ', ';
+                let nEtiquetas = Math.floor(Math.random() * 5) + 1;
+                for(let j = 0; j < nEtiquetas; j++){
+                    document.write(sentencia + generateRandomNumber() + '); <br>');
+                }
+            }
+
+    </script>
+</body>
+</html>

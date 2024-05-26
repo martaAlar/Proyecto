@@ -128,3 +128,7 @@ SELECT u.userid, u.username, u.nombre, u.prApellido, perfil.fotoPerfil
                 )
 				ORDER BY RAND()
 				LIMIT 3;
+
+SELECT * 
+FROM posts
+WHERE userid = :userid

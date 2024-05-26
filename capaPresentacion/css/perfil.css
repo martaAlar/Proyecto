@@ -232,7 +232,7 @@ hr {
 
 #informacion {
     position: absolute;
-    margin-top: -33px;
+    margin-top: -23px;
     margin-left: 170px;
     font-size: 20px;
     color: rgb(84, 67, 67);
@@ -354,8 +354,7 @@ hr {
 .botonPerfilMatching {
     background-color: transparent;
     border-color: transparent;
-    border-radius: 10px;
-    margin-left: 5px;
+    margin-left: 3px;
     margin-top: 3px;
 }
 
@@ -461,6 +460,7 @@ hr {
 .publicacion {
     flex-direction: column;
     padding-right: 20px;
+    padding-top: 2%;
     padding-left: 20px;
     margin-top: 2%;
     display: flex;
@@ -468,6 +468,21 @@ hr {
 
 .publicacion:hover {
     background-color: rgba(227, 227, 227, 0.454);
+}
+.etiquetaPublicacion {
+    background-color: rgba(255, 0, 0, 0.702);
+    width: 22%;
+    position: relative;
+    padding: 5px;
+    border-top-right-radius: 20px;
+    margin-top: -20px;
+}
+.lineaEtiqueta {
+    background-color: rgba(255, 0, 0, 0.702) !important;
+    border: none;
+    width: 100%;
+    margin-top: -2px;
+    height: 2px;
 }
 .fotoPublicacion {
     width: 30%;
@@ -478,6 +493,12 @@ hr {
 
 .textoPublicacion {
     width: 60%;
+    margin-left: 2%;
+    font-size: 120%;
+}
+
+.textoPublicacionSinImg {
+    width: 100%;
     margin-left: 2%;
     font-size: 120%;
 }

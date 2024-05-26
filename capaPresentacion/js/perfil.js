@@ -7,6 +7,12 @@ let color = document.getElementsByTagName('body')[0];*/
 var divTags = document.getElementById('tagsDivPerfil');
 var divPosts = document.getElementById('divPosts');
 var divMatching = document.getElementById('divMatching');
+var botonesMatching = document.querySelectorAll('.botonPerfilMatching');
+function cargarPerfilExterno(userId) {
+    sessionStorage.setItem('selectUserId', userId);
+    window.location.href = 'perfilExterno.html';
+}
+
 function abrirVentana() {
     // Definir las dimensiones de la ventana emergente
     var width = 600;
@@ -60,7 +66,7 @@ window.onload = function() {
                 document.getElementById('descripcion').innerHTML = respuesta[1][6];
                 document.getElementsByTagName('body')[0].style.background = 'linear-gradient(50deg,#f0ebebb2,'+respuesta[1][2]+')';
 
-                let etiquetas = respuesta[2];
+                var etiquetas = respuesta[2];
                 const cookies = document.cookie.split(';')[0].substring(5);
                 
                 etiquetas.forEach(etiqueta => {
@@ -78,40 +84,103 @@ window.onload = function() {
                     divTags.appendChild(tag);
                 });
 
-                let posts = respuesta[3];
-                //console.log(respuesta[3]);
+                var posts = respuesta[3];
+                //console.log(respuesta[4]);
                 divPosts.innerHTML = '';
                 posts.forEach(post => {
-                    //console.log(post[4]);
+                    console.log(posts);
                     let postDiv = document.createElement('div');
+                    let postTag = document.createElement('div');
+                    let tagHR = document.createElement('hr');
                     let postFila = document.createElement('div');
                     let postImagen = document.createElement('img');
                     let postTexto = document.createElement('p');
+
                     postDiv.setAttribute('class', 'publicacion');
                     postFila.setAttribute('class', 'filaPost');
-                    postImagen.setAttribute('src', '../../' + post[4]);
-                    postImagen.setAttribute('class', 'fotoPublicacion');
-                    postTexto.innerHTML = post[3];
-                    postTexto.setAttribute('class', 'textoPublicacion');
-                    
-                    postFila.appendChild(postImagen);
-                    postFila.appendChild(postTexto);
 
+                    postTexto.innerHTML = post[3];
+
+                    postTag.setAttribute('class', 'etiquetaPublicacion');
+                    postTag.style.background = respuesta[1][2] + 'c6';
+                    etiquetas.forEach(etiqueta => {
+                        if (etiqueta[0] == post[2]) {
+                            if (cookies == 'EN') {
+                                postTag.innerText = etiqueta[2];
+                                console.log(etiqueta);
+                            } else {
+                                console.log('es');
+                                postTag.innerText = etiqueta[1];
+                            }
+                        } else {
+                            console.log('xd');
+                        }
+                        
+                    });
+
+                    tagHR.setAttribute('class', 'lineaEtiqueta');
+
+                    // Create a new <style> element
+                    let style = document.createElement('style');
+
+                    // Add the CSS rule with !important
+                    style.innerHTML = `.lineaEtiqueta { background-color: ${respuesta[1][2]}c6 !important; }`;
+
+                    // Append the style element to the head
+                    document.head.appendChild(style);
+
+                    if(post[4] == 0){
+                        postTexto.setAttribute('class', 'textoPublicacionSinImg');
+                    } else {
+                        postTexto.setAttribute('class', 'textoPublicacion');
+                        postImagen.setAttribute('src', '../../' + post[4]);
+                        postImagen.setAttribute('class', 'fotoPublicacion');
+                        postFila.appendChild(postImagen);
+                    }
+
+                    console.log(post[4]);
+                    postFila.appendChild(postTexto);
+                    postDiv.appendChild(postTag);
+                    postDiv.appendChild(tagHR);
                     postDiv.appendChild(postFila);
 
                     divPosts.appendChild(postDiv);
+
                 });
                 let matching = respuesta[4];
                 matching.forEach(perfil => {
                     let boton = document.createElement('button');
+                    boton.setAttribute('data-id', perfil[0]);
+                    boton.setAttribute('class', 'botonPerfilMatching');
+                    boton.addEventListener('click', function() {
+                        cargarPerfilExterno(perfil[0]);
+                    });
+                
                     let divPerfil  = document.createElement('div');
-                    let fila1  = document.createElement('div');
-                    fila1.setAttribute('class', 'filaMatching');
+                    divPerfil.setAttribute('class', 'perfilesMatching');
+                
+                    let fila  = document.createElement('div');
+                    fila.setAttribute('class', 'filaMatching');
+                
                     let imagen = document.createElement('img');
-
-
-                    divMatching
-                })
+                    imagen.setAttribute('src', '../..' + perfil[4]);
+                    imagen.setAttribute('class', 'pfpMatching');
+                
+                    let nombre = document.createElement('h4');
+                    nombre.setAttribute('class', 'nombreMatching');
+                    let span = document.createElement('span');
+                    span.setAttribute('class', 'usernameMatching');
+                    let br = document.createElement('br');
+                    nombre.innerHTML = perfil[2] + ' ' + perfil[3] + '<br>@' + perfil[2];
+                
+                    fila.appendChild(imagen);
+                    fila.appendChild(nombre);
+                
+                    divPerfil.appendChild(fila);
+                    boton.appendChild(divPerfil);
+                    divMatching.appendChild(boton);
+                });
+                
                 //console.log(cookies)
             } else {
                 // Si hay algún error

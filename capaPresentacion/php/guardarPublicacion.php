@@ -19,7 +19,8 @@ if (isset($_FILES['foto'])) {
     } else {
         // Cuando hay una imagen...
         if (move_uploaded_file($foto['tmp_name'], $destino)) {
-            //echo 'Se ha copiado la foto';
+            // Asigna la ruta a la imagen
+            $post->setFoto('/capaDatos/publicaciones/' .$_SESSION['id'] . '_Post_'.date("Y_m_d_H_i_s").'.png');
         } else {
             echo 'Ha fallado la foto';
         }
@@ -44,7 +45,7 @@ if(isset($_POST['texto'])) {
 
 //echo $color;
 $post->setUserId($_SESSION['id']);
-$post->setFoto('/capaDatos/publicaciones/' . $_SESSION['id'] . '_Post_'.date("Y_m_d_H_i_s").'.png');
+//$post->setFoto('/capaDatos/publicaciones/' . $_SESSION['id'] . '_Post_'.date("Y_m_d_H_i_s").'.png');
 $post->setEtiquetaId($etiqueta);
 $post->setFechaPublic(date('Y-m-d'));
 $post->setContenido($_POST['texto']);
